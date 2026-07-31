@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnología, Sociedad y Conocimiento</title>
+    <meta name="description" content="Explora la intersección entre tecnología, sociedad y la evolución del conocimiento en la era digital.">
+    <meta name="keywords" content="tecnología, sociedad, conocimiento, era digital, desarrollo web, impacto social">
+    <meta name="author" content="Tu Nombre/Empresa">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tudominio.com/tecnologia-sociedad">
+    <meta property="og:title" content="Tecnología, Sociedad y Conocimiento">
+    <meta property="og:description" content="Explora la intersección entre tecnología, sociedad y la evolución del conocimiento en la era digital.">
+    <meta property="og:image" content="https://www.tudominio.com/imagen-social.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.tudominio.com/tecnologia-sociedad">
+    <meta property="twitter:title" content="Tecnología, Sociedad y Conocimiento">
+    <meta property="twitter:description" content="Explora la intersección entre tecnología, sociedad y la evolución del conocimiento en la era digital.">
+    <meta property="twitter:image" content="https://www.tudominio.com/imagen-social.jpg">
+
+    <style>
+        /* Variables de color profesionales */
+        :root {
+            --color-primary: #007bff; /* Azul */
+            --color-secondary: #28a745; /* Verde */
+            --color-accent-yellow: #ffc107; /* Amarillo */
+            --color-danger: #dc3545; /* Rojo */
+            --color-dark: #343a40;
+            --color-light: #f8f9fa;
+            --color-gray: #6c757d;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        header {
+            background: var(--color-dark);
+            color: var(--color-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background 0.3s ease;
+        }
+        header.scrolled {
+            background: rgba(52, 58, 64, 0.95);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        header nav ul li a:hover {
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        header nav ul li a.active {
+            color: var(--color-secondary);
+            border-bottom: 2px solid var(--color-secondary);
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--color-primary);
+            margin: 10px auto 0;
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: var(--color-dark);
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: url('https://picsum.photos/1920/1080?random=1') no-repeat center center/cover; /* Placeholder image */
+            color: var(--color-light);
+            text-align: center;
+            padding: 100px 0;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+        #hero .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        #hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--color-light);
+            animation: slideInUp 1s ease-out;
+        }
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            animation: slideInUp 1.2s ease-out;
+        }
+        .btn {
+            background-color: var(--color-secondary);
+            color: var(--color-light);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #218838; /* Darker green */
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Grid de características */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-item {
+            background-color: var(--color-light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid transparent;
+        }
+        .feature-item:nth-child(1) { border-top-color: var(--color-primary); }
+        .feature-item:nth-child(2) { border-top-color: var(--color-secondary); }
+        .feature-item:nth-child(3) { border-top-color: var(--color-accent-yellow); }
+        .feature-item:nth-child(4) { border-top-color: var(--color-danger); }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .feature-item h4 {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .feature-item p {
+            color: var(--color-gray);
+        }
+
+        /* Tabla comparativa */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: var(--color-light);
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            font-weight: bold;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .comparison-table tr:hover {
+            background-color: #e9e9e9;
+        }
+        .comparison-table td:first-child {
+            font-weight: bold;
+            color: var(--color-dark);
+        }
+        .comparison-table .positive {
+            color: var(--color-secondary);
+        }
+        .comparison-table .negative {
+            color: var(--color-danger);
+        }
+
+        /* Blockquote */
+        blockquote {
+            background-color: #e9f7ef;
+            border-left: 5px solid var(--color-secondary);
+            margin: 20px 0;
+            padding: 20px;
+            font-style: italic;
+            color: var(--color-dark);
+            border-radius: 5px;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+        blockquote p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        blockquote cite {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--color-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Media Queries para Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            header h1 {
+                margin-bottom: 15px;
+            }
+            header nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            header nav ul li {
+                margin: 5px 0;
+            }
+            #hero h2 {
+                font-size: 2.5rem;
+            }
+            #hero p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            h3 {
+                font-size: 1.7rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px 0;
+            }
+            #hero {
+                padding: 80px 0;
+            }
+            #hero h2 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Tecnología, Sociedad y Conocimiento</h1>
+            <nav>
+                <ul>
+                    <li><a href="#intro" class="active">Inicio</a></li>
+                    <li><a href="#conceptos">Conceptos Clave</a></li>
+                    <li><a href="#comparativa">Comparativa</a></li>
+                    <li><a href="#trabajadores">Trabajadores</a></li>
+                    <li><a href="#definiciones">Definiciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero / Introducción -->
+    <section id="intro">
+        <div class="container hero-content">
+            <h2>La Era Digital: Transformando la Sociedad y el Conocimiento</h2>
+            <p>Explora cómo la tecnología ha redefinido nuestras interacciones, nuestro acceso a la información y el desarrollo continuo de la inteligencia colectiva.</p>
+            <a href="#conceptos" class="btn">Saber Más</a>
+        </div>
+    </section>
+
+    <!-- Sección de Conceptos Clave -->
+    <section id="conceptos">
+        <div class="container">
+            <h2>Conceptos Clave en la Sociedad del Conocimiento</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Innovación Continua</h4>
+                    <p>El ritmo acelerado de cambio tecnológico impulsa la necesidad de aprendizaje constante.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Acceso Universal</h4>
+                    <p>La democratización del conocimiento a través de plataformas digitales y redes.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Colaboración Global</h4>
+                    <p>Proyectos y soluciones desarrolladas por equipos multidisciplinares alrededor del mundo.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Alfabetización Digital</h4>
+                    <p>Habilidades esenciales para navegar y prosperar en el ecosistema digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Comparativa -->
+    <section id="comparativa">
+        <div class="container">
+            <h2>Comparativa: Sociedad Industrial vs. Sociedad del Conocimiento</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Sociedad Industrial</th>
+                        <th>Sociedad del Conocimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Recurso Principal</td>
+                        <td>Capital, Materia Prima</td>
+                        <td class="positive">Información, Conocimiento</td>
+                    </tr>
+                    <tr>
+                        <td>Producción</td>
+                        <td>Bienes Materiales</td>
+                        <td class="positive">Servicios, Ideas</td>
+                    </tr>
+                    <tr>
+                        <td>Valor Dominante</td>
+                        <td>Economía de Escala</td>
+                        <td class="positive">Innovación, Personalización</td>
+                    </tr>
+                    <tr>
+                        <td>Educación</td>
+                        <td>Estandarizada, Memorística</td>
+                        <td class="positive">Continua, Crítica, Creativa</td>
+                    </tr>
+                    <tr>
+                        <td>Organización Laboral</td>
+                        <td>Jerárquica, Rutinaria</td>
+                        <td class="positive">Flexible, Colaborativa, Redes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Sección Trabajadores del Conocimiento -->
+    <section id="trabajadores">
+        <div class="container">
+            <h2>El Rol del Trabajador del Conocimiento</h2>
+            <blockquote>
+                <p>"El conocimiento se convierte en el recurso productivo más importante, dejando atrás el capital, la mano de obra y la materia prima."</p>
+                <cite>- Peter Drucker</cite>
+            </blockquote>
+            <p>Los trabajadores del conocimiento son individuos que utilizan su intelecto para resolver problemas, crear valor y generar nuevas ideas. Son esenciales en la economía moderna, ya que su capacidad para procesar información y aplicar el conocimiento es el motor de la innovación y el crecimiento.</p>
+            <p>En este contexto, la formación continua y la adaptabilidad son cualidades invaluables. La colaboración y el trabajo en red permiten a estos profesionales maximizar su impacto y enfrentar desafíos complejos.</p>
+        </div>
+    </section>
+
+    <!-- Sección Definiciones Clave -->
+    <section id="definiciones">
+        <div class="container">
+            <h2>Definiciones Esenciales</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Información</h4>
+                    <p>Datos organizados y contextualizados que aportan significado.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Conocimiento</h4>
+                    <p>Información procesada, interpretada y aplicada para resolver problemas o tomar decisiones.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Innovación</h4>
+                    <p>La aplicación exitosa de nuevas ideas para crear valor.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Sociedad Digital</h4>
+                    <p>Una sociedad donde las TIC transforman la economía, cultura y vida cotidiana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Tecnología, Sociedad y Conocimiento. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para scroll suave y navegación activa
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('header nav ul li a');
+            const header = document.querySelector('header');
+
+            // Scroll suave
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Navegación activa al hacer scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.7 // Ajusta este valor para que el enlace se active cuando la sección esté más visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Cambiar fondo del header al hacer scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
