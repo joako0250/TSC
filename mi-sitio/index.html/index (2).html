@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnología, Sociedad y Conocimiento | Ciudadanía digital, redes e IA</title>
+    <meta name="description" content="Guía clara sobre ciudadanía digital: redes sociales, infodemia, infocracia, derechos de autor, identidad digital, diseño web, ciberseguridad e inteligencia artificial.">
+    <meta name="keywords" content="ciudadanía digital, redes sociales, infodemia, infocracia, derechos de autor, identidad digital, diseño web, ciberseguridad, inteligencia artificial, marketing digital, SEO, ciberviolencia, ciberacoso, Ley Olimpia">
+    <meta name="author" content="Joako">
+
+
+
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tudominio.com/tecnologia-sociedad">
+    <meta property="og:title" content="Tecnología, Sociedad y Conocimiento">
+    <meta property="og:description" content="Guía clara sobre ciudadanía digital: redes sociales, infodemia, infocracia, derechos de autor, identidad digital, diseño web, ciberseguridad e inteligencia artificial.">
+    <meta property="og:image" content="assets/og-preview.jpg">
+
+
+
+
+    <!-- Fuentes externas (Montserrat, Plus Jakarta Sans y Space Grotesk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+
+
+
+    <style>
+        /* Variables de color estilo Cyber/Tech Moderno */
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: rgba(22, 31, 48, 0.7);
+            --bg-card-hover: rgba(30, 41, 64, 0.9);
+            --accent-primary: #7c3aed; /* Violeta Neón */
+            --accent-secondary: #06b6d4; /* Cian Neón */
+            --accent-glow: rgba(124, 58, 237, 0.4);
+            --text-title: #ffffff;
+            --text-body: #94a3b8;
+            --text-light: #f1f5f9;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --header-height: 70px;
+        }
+
+
+
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            overflow-x: clip; /* evita desbordes horizontales sin crear un contenedor de scroll */
+        }
+
+
+
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: var(--header-height); /* Espacio para el header fijo */
+            line-height: 1.7;
+            color: var(--text-body);
+            background-color: var(--bg-main);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            overflow-x: clip; /* Previene el achicamiento de la pantalla al abrir menús */
+        }
+
+
+
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-title);
+        }
+
+
+
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+
+
+
+        /* Header Navegación con Menú Hamburguesa */
+        header {
+            background: rgba(11, 15, 25, 0.95);
+            position: fixed; /* Siempre visible: el botón hamburguesa ya no desaparece al hacer scroll */
+            top: var(--vt, 0px); /* --vt lo calcula el script según la parte visible del iframe */
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: box-shadow 0.3s ease, top 0.15s linear;
+            border-bottom: 1px solid var(--border-color);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+
+
+
+
+        header.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+
+
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+        }
+
+
+
+
+        header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            padding-right: 56px;
+        }
+
+
+
+
+        /* Botón Hamburguesa */
+        .hamburger-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            /* Flotante: siempre disponible, acompaña el scroll */
+            position: fixed;
+            top: calc(13px + var(--vt, 0px));
+            transition: top 0.15s linear;
+            right: max(5%, calc((100% - 1100px) / 2));
+            width: 44px;
+            height: 44px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 0;
+            border-radius: 50%;
+            background: rgba(11, 15, 25, 0.9);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+            z-index: 1003;
+        }
+
+
+
+
+        .hamburger-btn span {
+            width: 22px;
+            height: 3px;
+            background-color: var(--text-title);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+
+
+
+        .hamburger-btn.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: var(--accent-secondary);
+        }
+
+
+
+
+        .hamburger-btn.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+
+
+
+        .hamburger-btn.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: var(--accent-secondary);
+        }
+
+
+
+
+        /* Panel Lateral del Menú Hamburguesa */
+        .nav-menu {
+            position: fixed;
+            top: calc(var(--header-height) + var(--vt, 0px));
+            right: 0;
+            width: 320px;
+            max-width: 85vw;
+            height: auto; /* Permite que el menú se adapte al contenido */
+            max-height: calc(var(--vh, 100vh) - var(--header-height) - 20px);
+            background: rgba(11, 15, 25, 0.98);
+            border-left: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: -10px 10px 30px rgba(0,0,0,0.8);
+            padding: 20px 25px;
+            box-sizing: border-box;
+            transform: translateX(100%);
+            visibility: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+            overflow-y: auto;
+            z-index: 1001;
+        }
+
+
+
+
+        .nav-menu.active {
+            transform: translateX(0);
+            visibility: visible;
+        }
+
+
+
+
+        /* CORRECCIÓN DE CÓDIGO/UI: Fondo Oscuro Overlay optimizado sin vw/vh para prevenir achicamiento */
+        .menu-overlay {
+            position: fixed;
+            top: var(--vt, 0px);
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: var(--vh, 100%);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+            pointer-events: none; /* Evita que bloquee clics cuando está inactivo */
+        }
+
+
+
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+
+
+
+        /* Estilos de los Temas y Subtemas del Menú */
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+
+
+
+        .menu-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+        }
+
+
+
+
+        /* Temas Principales y Subtemas en Space Grotesk Blanca */
+        .menu-item-title,
+        .menu-sublist li a,
+        .menu-item > a {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+
+
+
+        /* Estilo para los acordeones (<details>) */
+        .menu-item details summary {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            transition: color 0.2s ease;
+        }
+
+
+
+
+        .menu-item details summary:hover {
+            color: var(--accent-secondary);
+        }
+
+
+
+
+        .menu-item details summary::-webkit-details-marker {
+            display: none;
+        }
+
+
+
+
+        .menu-item details summary::after {
+            content: '▾';
+            font-size: 0.9rem;
+            color: var(--accent-secondary);
+            transition: transform 0.3s ease;
+        }
+
+
+
+
+        .menu-item details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+
+
+
+        /* Lista de Subtemas */
+        .menu-sublist {
+            list-style: none;
+            padding-left: 15px;
+            margin: 8px 0 5px 0;
+        }
+
+
+
+
+        .menu-sublist li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+
+
+
+        .menu-sublist li a {
+            font-size: 0.92rem;
+            font-weight: 500;
+            display: block;
+            padding: 4px 0;
+            transition: all 0.2s ease;
+            opacity: 0.9;
+        }
+
+
+
+
+        .menu-sublist li a::before {
+            content: "• ";
+            color: var(--accent-secondary);
+            font-weight: bold;
+        }
+
+
+
+
+        .menu-sublist li a:hover {
+            color: var(--accent-secondary);
+            transform: translateX(4px);
+            opacity: 1;
+        }
+
+
+
+
+        /* Temas simples sin subtemas */
+        .menu-item > a {
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: block;
+            padding: 8px 0;
+            transition: color 0.2s ease;
+        }
+
+
+
+
+        .menu-item > a:hover {
+            color: var(--accent-secondary);
+        }
+
+
+
+
+        /* Ajuste de scroll para las secciones */
+        section {
+            padding: 80px 0;
+            scroll-margin-top: var(--header-height);
+        }
+
+
+
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+
+
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+
+
+
+        .subsection-title {
+            margin-top: 60px;
+        }
+
+
+
+
+        /* Hero Section */
+        #intro {
+            text-align: center;
+            padding: 100px 0 60px 0;
+            position: relative;
+        }
+
+
+
+
+        #intro .hero-content h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+
+
+        #intro .hero-content h2::after {
+            display: none;
+        }
+
+
+
+
+        #intro .hero-content p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto;
+            color: var(--text-body);
+        }
+
+
+
+
+        /* Grids de tarjetas responsivas */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+
+
+
+        .feature-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 16px;
+            
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            border-color: rgba(124, 58, 237, 0.5);
+            box-shadow: 0 10px 30px -10px var(--accent-glow);
+        }
+
+
+
+
+        .feature-item h3 {
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+
+
+
+        .feature-item p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+
+
+
+        /* Estilo para infografías, videos y cuadros sinópticos */
+        .infografia-container, .video-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+
+
+
+        .infografia-container p, .video-container p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+
+
+
+        .infografia-img, .responsive-video {
+            max-width: 100%;
+            height: auto;
+            max-width: 850px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+
+
+
+        /* Estilos específicos para integrar el Cuadro Sinóptico de Competencias Digitales */
+        .synoptic-img-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            margin-top: 35px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: border-color 0.3s ease;
+        }
+
+
+
+
+        .synoptic-img-wrapper:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+        }
+
+
+
+
+        .synoptic-img {
+            width: 100%;
+            max-width: 950px;
+            height: auto;
+            border-radius: 12px;
+            filter: contrast(1.05) brightness(0.95);
+            display: block;
+            margin: 0 auto;
+        }
+
+
+
+
+        /* Cuadro Sinóptico Interactivo (Details/Summary del cuerpo) */
+        .synoptic-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+
+
+
+        .synoptic-box details {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            padding: 12px 18px;
+            transition: background 0.3s ease;
+        }
+
+
+
+
+        .synoptic-box details[open] {
+            background: rgba(124, 58, 237, 0.1);
+            border-color: var(--accent-primary);
+        }
+
+
+
+
+        .synoptic-box summary {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-light);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+
+
+        .synoptic-box summary::-webkit-details-marker {
+            display: none;
+        }
+
+
+
+
+        .synoptic-box summary::after {
+            content: '＋';
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+        }
+
+
+
+
+        .synoptic-box details[open] summary::after {
+            content: '－';
+        }
+
+
+
+
+        .details-content {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.95rem;
+        }
+
+
+
+
+        /* Tablas Comparativas Estilizadas */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            margin-top: 25px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+
+
+
+        .comparison-table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+
+
+
+        .comparison-table th, .comparison-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+
+
+
+        .comparison-table th {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: var(--text-light);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+        }
+
+
+
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+
+
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--accent-secondary);
+        }
+
+
+
+
+        .comparison-table .positive {
+            color: var(--accent-secondary);
+            font-weight: 600;
+        }
+
+
+
+
+        .table-footnote {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--accent-secondary);
+            margin-top: 25px;
+        }
+
+
+
+
+        /* Blockquotes - Citas en Times New Roman */
+        blockquote {
+            background: rgba(124, 58, 237, 0.08);
+            border-left: 4px solid var(--accent-primary);
+            margin: 30px 0;
+            padding: 25px 30px;
+            border-radius: 0 16px 16px 0;
+        }
+
+
+
+
+        blockquote p {
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+
+
+
+        blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+
+
+
+        /* Listas estilizadas */
+        .leadership-keys {
+            padding-left: 0;
+            list-style: none;
+            counter-reset: custom-counter;
+        }
+
+
+
+
+        .leadership-keys li {
+            counter-increment: custom-counter;
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 25px;
+        }
+
+
+
+
+        .leadership-keys li::before {
+            content: counter(custom-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: #fff;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+
+
+
+        .leadership-keys strong {
+            color: var(--text-light);
+        }
+
+
+
+
+        /* Estilos para el Logo de autenticación en el Footer */
+        .auth-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+
+
+
+        .auth-logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-secondary);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+        }
+
+
+
+
+        .auth-logo-caption {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-body);
+            margin-top: 10px;
+        }
+
+
+
+
+        /* Footer */
+        footer {
+            background-color: rgba(5, 8, 15, 0.9);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+
+
+
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-body);
+        }
+
+
+
+
+        /* Responsividad Mobile */
+        @media (max-width: 820px) {
+            #intro {
+                padding: 60px 0 40px 0;
+            }
+
+
+
+
+            #intro .hero-content h2 {
+                font-size: 2.1rem;
+            }
+
+
+
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+
+
+
+            section {
+                padding: 50px 0;
+            }
+
+
+
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+
+
+            .synoptic-img-wrapper {
+                padding: 10px;
+            }
+        }
+    
+        /* Línea de tiempo (historia de las redes sociales) */
+        .timeline { list-style: none; position: relative; max-width: 760px; margin: 0 auto; padding: 10px 0 0; }
+        .timeline::before { content: ""; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent-secondary), var(--accent-primary)); }
+        .timeline li { position: relative; margin: 0; padding: 0 0 28px 60px; }
+        .timeline li::before { content: ""; position: absolute; left: 11px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: var(--bg-main); border: 3px solid var(--accent-primary); box-shadow: 0 0 12px var(--accent-glow); }
+        .tl-year { display: inline-block; margin-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; color: var(--accent-secondary); }
+        .tl-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 16px 20px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .tl-card:hover { background: var(--bg-card-hover); transform: translateY(-3px); }
+        .tl-card p { margin: 0; }
+        @media (min-width: 860px) {
+            .timeline { max-width: 960px; }
+            .timeline::before { left: 50%; transform: translateX(-50%); }
+            .timeline li { width: 50%; padding: 0 40px 28px 0; text-align: right; }
+            .timeline li:nth-child(even) { margin-left: 50%; padding: 0 0 28px 40px; text-align: left; }
+            .timeline li::before { left: auto; right: -10px; }
+            .timeline li:nth-child(even)::before { right: auto; left: -10px; }
+        }
+    
+        /* Enlace al canal de YouTube */
+        .youtube-link { display: inline-block; margin-bottom: 20px; border-radius: 13px; line-height: 0; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease; }
+        .youtube-link svg { display: block; width: 68px; height: 48px; }
+        .youtube-link:hover { transform: scale(1.08); filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.55)); }
+        .youtube-link:focus-visible { outline: 2px solid var(--accent-secondary); outline-offset: 4px; }
+    
+        /* Tipografías según el informe de diseño: epígrafes (Montserrat), conclusiones (Helvetica), citas (Times New Roman) */
+        .auth-logo-caption, .infografia-container p, .video-container p { font-family: 'Montserrat', sans-serif; }
+        .table-footnote { font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif; }
+        .cita { font-family: 'Times New Roman', Times, serif; font-style: italic; }
+
+        /* Subtítulos (h3): claramente por debajo de los títulos (h2) pero más grandes que el texto */
+        h3 { font-size: 1.55rem; }
+        section .container > h3 { text-align: center; }
+        @media (max-width: 820px) { h3 { font-size: 1.3rem; } }
+
+        /* Párrafos de apertura de cada tema centrados, como los de la parte superior */
+        section .container > p { text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+    
+        /* ===== Accesibilidad por teclado ===== */
+        html { scroll-padding-top: calc(var(--header-height) + 20px); } /* lo enfocado con Tab no queda bajo el header fijo */
+        :focus-visible { outline: 3px solid var(--accent-secondary); outline-offset: 3px; border-radius: 6px; }
+        .hamburger-btn:focus-visible { border-radius: 50%; }
+        .menu-item details summary:focus-visible, .synoptic-box summary:focus-visible, .nav-menu a:focus-visible { outline-offset: 2px; border-radius: 8px; background: rgba(6, 182, 212, 0.12); }
+        .table-wrapper:focus-visible { outline-offset: -3px; border-radius: 16px; }
+        main:focus, main:focus-visible, section:focus, section:focus-visible { outline: none; } /* destinos de salto: se enfocan por código, sin recuadro */
+        .skip-link { position: fixed; left: 16px; top: -120px; z-index: 2000; padding: 12px 20px; border-radius: 12px; background: var(--accent-primary); color: #ffffff; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); transition: top 0.2s ease; }
+        .skip-link:focus { top: calc(var(--vt, 0px) + 12px); }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    
+        /* Video de YouTube incrustado: proporción 16:9 fluida, funciona en celular y escritorio */
+        .youtube-embed { max-width: 850px; margin: 40px auto 10px; padding: 0; }
+        .youtube-frame { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); background: #000000; }
+        .youtube-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .youtube-frame iframe:focus-visible { outline-offset: -4px; border-radius: 16px; } /* el aro de foco queda dentro del marco */
+        .youtube-embed figcaption { margin-top: 16px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: var(--text-light); }
+    
+        /* Imagen con epígrafe (Montserrat) */
+        .image-figure { max-width: 850px; margin: 25px auto 30px; padding: 0; }
+        .image-figure .infografia-img { display: block; width: auto; max-width: 100%; height: auto; margin: 0 auto; }
+        .image-figure figcaption { margin-top: 14px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: var(--text-light); }
+    
+        /* Conclusión tipo "machete" de estudio (Helvetica) */
+        .conclusion { max-width: 850px; margin: 45px auto 0; padding: 22px 26px 12px; text-align: left; font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif; background: var(--bg-card); border: 1px solid var(--border-color); border-top: 4px solid var(--accent-secondary); border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
+        .conclusion .conclusion-label { margin: 0 0 14px; font-size: 1.05rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-secondary); }
+        .conclusion p { margin: 0 0 12px; font-family: inherit; font-size: 1rem; line-height: 1.7; }
+        .conclusion strong { color: #ffffff; }
+        @media (max-width: 600px) { .conclusion { padding: 18px 18px 8px; margin-top: 35px; } }
+    
+        /* Enlaces dentro de tarjetas y tarjetas con cifras destacadas */
+        .feature-item a { color: var(--accent-secondary); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+        .feature-item a:hover { color: #ffffff; }
+        .feature-item p + p { margin-top: 12px; }
+        .feature-item.stat h3 { font-size: 2.4rem; line-height: 1.1; }
+            section[id] { scroll-margin-top: 0; } /* el espacio bajo el header ya lo da scroll-padding-top de <html>; así no se suma dos veces */
+    
+        /* Reproductor de audio */
+        .audio-container { max-width: 850px; margin: 40px auto 10px; padding: 0; text-align: center; }
+        .audio-container figcaption { margin-bottom: 14px; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--text-light); }
+        .audio-card { padding: 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
+        .audio-card audio { display: block; width: 100%; height: 54px; color-scheme: dark; border-radius: 12px; }
+        .audio-card audio:focus-visible { outline: 3px solid var(--accent-secondary); outline-offset: 4px; }
+        .audio-error { margin: 12px 0 0; font-size: 0.95rem; color: var(--text-light); }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+
+
+
+    <!-- Header / Navegación Hamburguesa -->
+    <header id="main-header">
+        <div class="container">
+            <h1>Tecnología, Sociedad y Conocimiento</h1>
+            
+            
+
+
+
+
+            
+
+
+
+
+            
+        </div>
+    </header>
+
+    <!-- Menú de navegación (fuera del header para que siempre quede fijo en pantalla) -->
+    <!-- Botón Hamburguesa -->
+            <button class="hamburger-btn" id="hamburger-toggle" type="button" aria-label="Abrir menú de navegación" aria-controls="nav-menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+    <!-- Panel Lateral Navegación -->
+            <nav class="nav-menu" id="nav-menu" aria-label="Navegación principal">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <details open>
+                            <summary>Conceptos generales</summary>
+                            <ul class="menu-sublist">
+                                <li><a href="#definiciones">Tecnología</a></li>
+                                <li><a href="#conceptos">Sociedad</a></li>
+                                <li><a href="#comparativa">Conocimiento</a></li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li class="menu-item">
+                        <details>
+                            <summary>Tecnologías de la información y la comunicación</summary>
+                            <ul class="menu-sublist">
+                                <li><a href="#ciberciudadania">Ciberciudadanía</a></li>
+                                <li><a href="#redes">Redes sociales</a></li>
+                                <li><a href="#dilema">Documental</a></li>
+                                <li><a href="#marketing">Marketing digital</a></li>
+                                <li><a href="#competencia">Competencias digitales</a></li>
+                                <li><a href="#infodemia">Infodemia</a></li>
+                                <li><a href="#infocracia">Infocracia</a></li>
+                                <li><a href="#ia">IA</a></li>
+                                <li><a href="#ciberviolencia">Ciberviolencia</a></li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li class="menu-item">
+                        <details>
+                            <summary>Identidad digital</summary>
+                            <ul class="menu-sublist">
+                                <li><a href="#derechos">Derechos de autor</a></li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#conceptos">Sociedad de la información</a>
+                    </li>
+
+                    <li class="menu-item">
+                        <details>
+                            <summary>Sociedad del conocimiento</summary>
+                            <ul class="menu-sublist">
+                                <li><a href="#trabajadores">Trabajadores del conocimiento</a></li>
+                                <li><a href="#evolucion">Evolución de las tecnologías del conocimiento</a></li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li class="menu-item">
+                        <details>
+                            <summary>Diseño web</summary>
+                            <ul class="menu-sublist">
+                                <li><a href="#curacion">Plan de curación de contenido</a></li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#seguridad">Seguridad informática</a>
+                    </li>
+
+                </ul>
+            </nav>
+
+    <!-- Capa Oscura Overlay -->
+            <div class="menu-overlay" id="menu-overlay"></div>
+
+
+
+
+    <main id="contenido" tabindex="-1">
+<!-- 1. Hero / Introducción General -->
+        <section id="intro">
+            <div class="container hero-content">
+                <h2>La Era Digital: Transformando la Sociedad y el Conocimiento</h2>
+                <p>Explora cómo la tecnología ha redefinido nuestras interacciones, nuestro acceso a la información y el desarrollo continuo de la inteligencia colectiva.</p>
+            </div>
+        </section>
+
+        <!-- 5. Definiciones Esenciales -->
+        <section id="definiciones">
+            <div class="container">
+                <h2>Definiciones Esenciales</h2>
+                <div class="feature-grid">
+                    <article class="feature-item">
+                        <h3>Información</h3>
+                        <p>Conjunto de datos organizados y contextualizados que aportan un significado claro.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Conocimiento</h3>
+                        <p>Información procesada, comprendida y aplicada para tomar decisiones o resolver problemas.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Dato</h3>
+                        <p>Elemento primario u observación que toma sentido únicamente cuando se le da un contexto.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Tecnología</h3>
+                        <p>Herramientas y métodos que modifican la forma en que accedemos, compartimos y creamos saber.</p>
+                    </article>
+                </div>
+            
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>El <strong>dato</strong> es la observación básica; con contexto se vuelve <strong>información</strong>, y cuando esa información se procesa, se comprende y se aplica para decidir o resolver problemas, es <strong>conocimiento</strong>.</p>
+            <p>La <strong>tecnología</strong> son las herramientas y métodos que modifican cómo accedemos, compartimos y creamos saber.</p>
+        </div>
+    </div>
+        </section>
+
+        <!-- 2. Conceptos Clave -->
+        <section id="conceptos">
+            <div class="container">
+                <h2>Conceptos Clave en la Sociedad del Conocimiento</h2>
+                <div class="feature-grid">
+                    <article class="feature-item">
+                        <h3>Transformación de la información</h3>
+                        <p>Significa asimilar esa información para que pase a tener un rol más activo en tu vida: pasar de la teoría a la práctica.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Educación y aprendizaje continuo</h3>
+                        <p>Se necesita actualizar la información constantemente para comprender los nuevos cambios del mundo digital.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Pensamiento crítico e innovación</h3>
+                        <p>Se premia mucho la generación de ideas originales y la capacidad de analizar datos para resolver problemas reales.</p>
+                    </article>
+                </div>
+
+
+
+
+                
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/3I27DaI.jpeg" alt="Imagen ilustrativa: sociedad del conocimiento y sociedad de la información" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+<h2 class="subsection-title">Conceptos Clave en la Sociedad de la Información</h2>
+                <div class="feature-grid">
+                    <article class="feature-item">
+                        <h3>Uso intensivo de tecnologías</h3>
+                        <p>Se utilizan computadoras, internet y redes para crear, compartir y acceder a la información de forma masiva.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Rápido acceso a los datos</h3>
+                        <p>Se pueden obtener datos e información de todo tipo desde cualquier lugar en cuestión de segundos.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Información = recurso clave</h3>
+                        <p>La información es vital y es la llave para la economía, el trabajo, la comunicación e incluso las decisiones colectivas.</p>
+                    </article>
+                </div>
+            
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/Zzrxqh_JZV4?rel=0&amp;playsinline=1" title="Video de YouTube sobre la sociedad de la información y del conocimiento" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «BRIAN ALEXANDER SIERRA AGUILAR»</figcaption>
+        </figure>
+</div>
+        </section>
+
+        <!-- 3. Comparativa -->
+        <section id="comparativa">
+            <div class="container">
+                <h2>Comparativa: Información vs. Conocimiento</h2>
+                <div class="table-wrapper" tabindex="0" role="region" aria-label="Tabla comparativa entre sociedad de la información y del conocimiento (se desplaza con las flechas del teclado)">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Aspecto</th>
+                                <th scope="col">Sociedad de la Información</th>
+                                <th scope="col">Sociedad del Conocimiento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Enfoque Principal</td>
+                                <td>Tecnología y procesamiento de datos.</td>
+                                <td class="positive">Transformación social, cultural y desarrollo personal.</td>
+                            </tr>
+                            <tr>
+                                <td>Objetivo</td>
+                                <td>Crecimiento económico y recopilación masiva.</td>
+                                <td class="positive">Bienestar común, empoderamiento y pensamiento crítico.</td>
+                            </tr>
+                            <tr>
+                                <td>Complejidad</td>
+                                <td>Redes orientadas a acumular y compartir datos.</td>
+                                <td class="positive">Dinamismo para comprender y aplicar el aprendizaje.</td>
+                            </tr>
+                            <tr>
+                                <td>Papel del ser humano</td>
+                                <td>Consumidor con acceso a datos.</td>
+                                <td class="positive">Creador activo con capacidad de análisis y desarrollo.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-footnote">Ambas sociedades van de la mano.</p>
+            
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>La <strong>sociedad de la información</strong> se centra en la tecnología y en acceder, procesar y compartir datos de forma masiva: la información es el recurso clave.</p>
+            <p>La <strong>sociedad del conocimiento</strong> va un paso más allá: busca transformar esa información en aprendizaje continuo, pensamiento crítico, innovación y bienestar común, con personas que son creadoras activas y no solo consumidoras.</p>
+            <p>Ambas van de la mano: la información es la materia prima y el conocimiento es lo que hacemos con ella.</p>
+        </div>
+    </div>
+        </section>
+
+        <!-- Sección Ciberciudadanía -->
+        <section id="ciberciudadania">
+            <div class="container">
+                <h2>Ciberciudadanía</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                    La ciudadanía digital supone la comprensión de asuntos políticos, culturales y sociales relacionados con el uso de las Tecnologías de la Información y la Comunicación (TIC), así como la aplicación de conductas pertinentes a esa comprensión y a los principios que la orientan: ética, legalidad, seguridad y responsabilidad en el uso de la Internet, las redes sociales y las tecnologías disponibles.
+                </p>
+                
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                    Un ciudadano digital tiene derecho al acceso a las Tecnologías de Información y Comunicación (TIC) y a su apropiación, al desarrollo de habilidades digitales, al acceso a la información en línea de forma segura, transparente y privada, así como a la participación a través de medios tecnológicos.
+                </p>
+
+
+
+
+                
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/ci5YNccocPY?rel=0&amp;playsinline=1" title="Video de YouTube sobre la ciberciudadanía" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «Jorge R»</figcaption>
+        </figure>
+<h3 style="text-align: center; margin-top: 40px;">Áreas de la Ciberciudadanía</h3>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 20px;">
+                    Según las diversas definiciones que circulan, hay una serie de áreas que se suelen abarcar y relacionar dentro del concepto de ciudadanía digital:
+                </p>
+
+
+
+
+                <div class="feature-grid">
+                    <article class="feature-item">
+                        <h3>Educación</h3>
+                        <p>Uso de las TIC para la alfabetización digital y desarrollo de competencias digitales en la que se involucran docentes, estudiantes e instituciones.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Acceso y participación</h3>
+                        <p>Brecha digital, derecho de acceso a Internet, democracia electrónica. Ejercicio responsable.</p>
+                    </article>
+<article class="feature-item"><h3>Seguridad y responsabilidad</h3><p>Prevención de riesgos digitales, especialmente en niños y adolescentes.</p></article><article class="feature-item"><h3>Democracia digital</h3><p>Participación, organización, control de los gobernantes y promoción de la transparencia.</p></article>
+                </div>
+
+
+
+
+                <div style="margin-top: 30px;">
+                    <p>Una tendencia en auge de especial relevancia es la vinculación de la educación para una ciberciudadanía responsable con la prevención de riesgos de las TIC, principalmente para los menores. Ello se debería a que fenómenos como el ciberacoso y el grooming se hallan entre los principales riesgos que niños y adolescentes afrontan como usuarios de Internet y de otras nuevas tecnologías.</p>
+                    
+                    <p>Otra tendencia, que podemos ligar al concepto democracia electrónica tiene más que ver con la construcción de herramientas desde abajo para hacer efectiva la democracia. Promueven la participación directa, la organización de las gentes para hacer efectivos sus derechos civiles, el control de los gobernantes, la comunicación de nuestros deseos y necesidades a quienes deciden y la transparencia de la gestión de gobierno.</p>
+                </div>
+
+
+
+
+                
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/NotCELK.jpeg" alt="Imagen ilustrativa: ciberciudadanía" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+<!-- Reproductor de video L.I.R.I.X. -->
+                <div class="video-container">
+                    <p>Video: L.I.R.I.X.</p>
+                    <video class="responsive-video" controls aria-label="Video L.I.R.I.X.">
+                        <source src="https://i.imgur.com/HwmNtpY.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video HTML5.
+                    </video>
+                </div>
+            <h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">La brecha digital</h3><p>Es la diferencia entre quienes tienen acceso y saben usar Internet, computadoras o celulares y quienes no. Suele afectar más a las personas mayores. Habilidades clave: manejo de dispositivos, nociones básicas de tecnología, reconocer peligros e información falsa e identificar buenas fuentes.</p><p><strong>Lirix</strong> es una aplicación pensada para reducir esta brecha: ofrece tutoriales paso a paso (WhatsApp, YouTube, búsquedas, comunicación y funciones básicas del celular o la computadora) para que cualquiera aprenda de forma simple y autónoma.</p>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>La <strong>ciudadanía digital</strong> es usar las TIC de forma ética, legal, segura y responsable, ejerciendo derechos como el acceso a la tecnología y a la información, la privacidad y la participación.</p>
+            <p>Sus áreas son <strong>educación</strong>, <strong>acceso y participación</strong>, <strong>seguridad y responsabilidad</strong> y <strong>democracia digital</strong>. Su gran desafío es la <strong>brecha digital</strong>, la diferencia entre quienes pueden usar la tecnología y quienes no, que afecta sobre todo a las personas mayores; Lirix busca reducirla.</p>
+        </div>
+    </div>
+        </section>
+
+        <section id="redes"><div class="container"><h2>Redes Sociales</h2><p>Una red social es el conjunto de personas, comunidades u organizaciones que intercambian bienes y servicios sociales para su bienestar y desarrollo (Jaime Royero, 2007). En su versión virtual (RSV) es una plataforma de internet donde las personas se registran, se conectan con otros usuarios, comparten contenidos y crean comunidades en torno a intereses comunes.</p><p>La palabra <em>red</em> proviene del latín <em>rete</em> y define una estructura basada en un patrón determinado. En sentido amplio, las redes sociales son estructuras en las que las personas mantienen relaciones amistosas, laborales o amorosas sin depender necesariamente de medios tecnológicos.</p><div class="feature-grid"><article class="feature-item"><h3>Por soporte</h3><p>Off-line o analógicas (cara a cara), on-line o digitales (RSV) y mixtas, que combinan lo presencial con herramientas virtuales.</p></article><article class="feature-item"><h3>Horizontales o generales</h3><p>Sin temática definida y para todo público. Ejemplo: Facebook.</p></article><article class="feature-item"><h3>Verticales o especializadas</h3><p>Responden a gustos o necesidades concretas: Flickr (fotografía), LinkedIn (profesional), Twitter (intereses profesionales y literarios) y Skype (telefonía y comunicación).</p></article></div>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/d1bNx1KTU4o?rel=0&amp;playsinline=1" title="Video de YouTube sobre las redes sociales" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «Astraway»</figcaption>
+        </figure>
+<h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Características de las RSV</h3><ul class="leadership-keys"><li><strong>Basadas en el usuario:</strong> los miembros las construyen y alimentan con su contenido</li><li><strong>Establecen relaciones:</strong> permiten descubrir contactos afines y reencontrar viejas amistades</li><li><strong>Interactivas:</strong> chats, foros y juegos para comunicarse en comunidad</li><li><strong>Para todo público:</strong> sistema abierto e incluyente</li><li><strong>Intercambian información e intereses:</strong> el contenido se difunde con rapidez entre contactos</li><li><strong>Variedad de servicios:</strong> mensajes, álbumes de fotos, blogs, foros y aplicaciones</li></ul>
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/Eiiacf6.jpeg" alt="Imagen ilustrativa: historia de las redes sociales" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+<h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Historia</h3><ol class="timeline" aria-label="Línea de tiempo de las redes sociales virtuales"><li><span class="tl-year">1995</span><div class="tl-card"><p>Randy Conrads crea un sitio pionero para recuperar el contacto con antiguos compañeros de colegio, instituto o universidad.</p></div></li><li><span class="tl-year">2002</span><div class="tl-card"><p>Aparecen las primeras plataformas con «círculos de amigos en línea».</p></div></li><li><span class="tl-year">2003</span><div class="tl-card"><p>Surgen más de 200 sitios: Friendster, LinkedIn, MySpace, Hi5, Tribe.net, Ecademy y Soflow.</p></div></li><li><span class="tl-year">2004</span><div class="tl-card"><p>Google apoya Orkut como experimento interno y nace Facebook, pensada para universitarios con correo institucional y luego abierta a secundarios, profesionales y público general.</p></div></li><li><span class="tl-year">2004 – hoy</span><div class="tl-card"><p>Mercado muy competitivo: Hi5, MySpace, Facebook, Twitter, Tuenti, Flickr, Skype y Sónico.</p></div></li></ol><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">¿Qué necesita una red virtual para funcionar?</h3><ul class="leadership-keys"><li><strong>Grupo de personas:</strong> equipo pequeño, motivado y con conciencia grupal</li><li><strong>Objetivos comunes:</strong> una misión compartida frente a retos en común</li><li><strong>Metodología:</strong> moderación (guía el flujo de información) y dinamización (motiva la participación)</li><li><strong>Productos sociales:</strong> documentos, acuerdos, decisiones o contenidos audiovisuales</li><li><strong>Plataforma online:</strong> foros, wikis, blogs y archivos que facilitan el debate</li></ul><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Ventajas y riesgos</h3><div class="feature-grid"><article class="feature-item"><h3>Ventajas</h3><p>Comunicación instantánea que ahorra tiempo y dinero; proyección laboral y contacto con empresas; aprendizaje fuera del aula y trabajo colaborativo; expresión de la identidad sin fronteras geográficas ni culturales.</p></article><article class="feature-item"><h3>Riesgos</h3><p>Fake news de rápida difusión, ciberbullying, vulneración de la privacidad y ciberseguridad, filtración de información sensible, conductas adictivas y exposición a redes de pedofilia o pornografía infantil.</p></article></div>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>Una <strong>red social virtual (RSV)</strong> es una plataforma donde las personas se conectan, interactúan y comparten contenidos. Pueden ser <strong>horizontales</strong> (generales, como Facebook) o <strong>verticales</strong> (especializadas, como LinkedIn o Flickr), y su historia arranca en 1995.</p>
+            <p>Ventajas: comunicación instantánea, oportunidades laborales y educativas, y expresión sin fronteras. Riesgos: fake news, ciberbullying, pérdida de privacidad, adicción y efectos en la salud mental.</p>
+        </div>
+    </div></section>
+
+        <section id="dilema"><div class="container"><h2>Análisis del documental de Netflix: «El dilema de las redes sociales»</h2><ul class="leadership-keys"><li><strong>Tú eres el producto:</strong> si el acceso es gratuito, lo que se comercializa es tu atención y tus datos</li><li><strong>Diseño adictivo:</strong> recompensas intermitentes (notificaciones, likes), como en una máquina tragamonedas</li><li><strong>Manipulación de la conducta:</strong> se aprovechan momentos de vulnerabilidad emocional para influir en consumo y posturas</li><li><strong>Erosión de la democracia:</strong> la desinformación masiva afecta el debate público (infocracia)</li><li><strong>Salud mental:</strong> aislamiento, desconexión del entorno y dependencia psicológica</li><li><strong>Belleza inalcanzable:</strong> filtros y edición difunden estándares irreales que bajan la autoestima</li></ul>
+                <figure class="audio-container">
+            <figcaption>Audio: La prisión transparente de los algoritmos</figcaption>
+            <div class="audio-card">
+                <audio controls preload="metadata" src="audio/la-prision-transparente-de-los-algoritmos.mp3" aria-label="Audio: La prisión transparente de los algoritmos">
+                    Tu navegador no soporta la reproducción de audio HTML5.
+                </audio>
+                <p class="audio-error" role="status" hidden>No se pudo cargar el audio. Verifica que el archivo «audio/la-prision-transparente-de-los-algoritmos.mp3» esté junto a la página.</p>
+            </div>
+        </figure>
+
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>Si el servicio es gratis, <strong>tú eres el producto</strong>: lo que se comercializa es tu atención y tus datos.</p>
+            <p>El diseño adictivo (notificaciones y likes), la manipulación de la conducta y los modelos de belleza irreales afectan la salud mental y debilitan el debate democrático.</p>
+        </div>
+    </div></section>
+
+        <!-- 9. Marketing Digital -->
+        <section id="marketing">
+            <div class="container">
+                <h2>Aplicación Práctica: El Ecosistema del Marketing Digital</h2>
+                <p style="text-align: center; max-width: 750px; margin: 0 auto 30px;">
+                    El marketing digital representa el uso profesional avanzado de las competencias digitales. A continuación, se muestran ejemplos prácticos de cómo se aplican estas técnicas en casos reales:
+                </p>
+
+
+
+
+                <div class="table-wrapper" tabindex="0" role="region" aria-label="Tabla de estrategias de marketing digital (se desplaza con las flechas del teclado)">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Estrategia</th>
+                                <th scope="col">Concepto</th>
+                                <th scope="col">Ejemplo Práctico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Marketing SEO</td>
+                                <td>Optimización para aparecer en motores de búsqueda de forma orgánica.</td>
+                                <td>Páginas como Wikipedia o blogs educativos optimizados para aparecer en primer lugar en Google.</td>
+                            </tr>
+                            <tr>
+                                <td>Blended Marketing</td>
+                                <td>Combinación equilibrada de estrategias tradicionales (offline) y digitales (online).</td>
+                                <td>Anuncios en marquesinas de autobuses con códigos QR que te dirigen a una aplicación móvil. También: un cartel publicitario de McDonald’s en la vía pública que invita a escanear un código QR para descargar su app y acceder a descuentos.</td>
+                            </tr>
+                            <tr>
+                                <td>Inbound Marketing</td>
+                                <td>Atracción de clientes mediante contenido de valor sin ser intrusivo.</td>
+                                <td>Empresas que ofrecen e-books o seminarios web gratuitos a cambio de suscripción al boletín. También: HubSpot ofreciendo guías y plantillas gratuitas para captar clientes potenciales.</td>
+                            </tr>
+                        
+                            <tr>
+                                <td>Email Marketing</td>
+                                <td>Utiliza el correo electrónico para educar, informar y promocionar productos a la audiencia.</td>
+                                <td>Los correos promocionales de Mercado Libre sobre ofertas del día.</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing de contenidos</td>
+                                <td>Crea y distribuye material relevante para resolver problemas o entretener a la audiencia de forma no intrusiva.</td>
+                                <td>Red Bull o Monster publicando contenido sobre deportes extremos para promocionar su estilo de vida y marca.</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing de influencers</td>
+                                <td>Colabora con figuras digitales para generar confianza mediante recomendaciones.</td>
+                                <td>Momo promocionando periféricos de Logitech.</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing de redes sociales</td>
+                                <td>Aprovecha plataformas como Instagram, TikTok o LinkedIn según el perfil de la audiencia.</td>
+                                <td>KFC publicando memes e interactuando con su público en TikTok e Instagram.</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing conversacional</td>
+                                <td>Usa canales interactivos y mensajes directos para entablar diálogos en tiempo real con los usuarios y guiarlos en su compra.</td>
+                                <td>Atención personalizada o asistencia inmediata a través de WhatsApp Business.</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing Automation</td>
+                                <td>Emplea software para automatizar procesos repetitivos y optimizar el seguimiento de usuarios.</td>
+                                <td>Un chatbot que toma pedidos automáticamente en un restaurante o tienda de ropa.</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing de afiliados</td>
+                                <td>Crea una red de colaboradores que promocionan productos a cambio de una comisión por cada venta generada.</td>
+                                <td>Creadores de contenido en YouTube que incluyen enlaces a productos de Temu para recibir comisiones.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <p style="margin-top:30px">El marketing digital es el conjunto de actividades y estrategias realizadas en entornos virtuales para conocer a la audiencia, promover una marca y convertir a los usuarios en clientes.</p>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/Ctd6BTuZmjA?rel=0&amp;playsinline=1" title="Video de YouTube sobre el marketing digital" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «Emprende Aprendiendo»</figcaption>
+        </figure>
+<h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Objetivos principales</h3><div class="feature-grid"><article class="feature-item"><h3>Captación de nuevos clientes</h3><p>Busca aumentar la tasa de conversión atrayendo a la audiencia adecuada.</p></article><article class="feature-item"><h3>Fidelización</h3><p>Pretende retener a los clientes actuales mediante mejores experiencias de usuario, una opción más económica que adquirir nuevos.</p></article><article class="feature-item"><h3>Reconocimiento de marca</h3><p>Posiciona la empresa y su oferta en el mercado mediante acciones de branding.</p></article><article class="feature-item"><h3>Aumento de la cuota de mercado</h3><p>Busca ganar presencia y participación comercial frente a los competidores.</p></article><article class="feature-item"><h3>Incremento de ventas</h3><p>Maximiza las transacciones ofreciendo facilidades en el proceso de compra.</p></article></div><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Ejemplo práctico de nuestra estrategia</h3><p>Como ejemplo práctico de Marketing Digital en el que utilizamos Marketing de Influencers y Marketing Conversacional, llevamos a cabo una estrategia combinada para dar a conocer nuestro servicio técnico: utilizamos la recomendación de un influencer para generar confianza en la comunidad y dirigir el tráfico a nuestro canal de WhatsApp, ofreciendo un medio directo y sencillo para resolver dudas e interactuar con los usuarios.</p>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>El <strong>marketing digital</strong> reúne actividades y estrategias en entornos virtuales para conocer a la audiencia, promover una marca y convertir usuarios en clientes.</p>
+            <p>Sus objetivos: captar clientes, fidelizar, ganar reconocimiento de marca, aumentar la cuota de mercado e incrementar ventas, con SEO, email, contenidos, influencers, redes sociales, inbound, conversacional, automation, afiliados y blended.</p>
+        </div>
+    </div>
+        </section>
+
+        <!-- 6. Competencias Digitales -->
+        <section id="competencia">
+            <div class="container">
+                <h2>Competencias Digitales</h2>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/MVtVJK_qbnI?rel=0&amp;playsinline=1" title="Video de YouTube sobre las competencias digitales" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «Grezan»</figcaption>
+        </figure>
+<p>La Recomendación europea de 2006 la definió como el uso crítico y seguro de las Tecnologías de la Sociedad de la Información para el trabajo, el tiempo libre y la comunicación.</p><p>Como indica Ferrari (2012), aquí se entiende como el conjunto de conocimientos, habilidades y actitudes necesarias hoy para ser funcional en un entorno digital, lo que incluye adaptarse a las tecnologías y también apropiárselas para los propios fines. En líneas generales, es el uso creativo, crítico y seguro de las TIC para alcanzar objetivos de trabajo, empleabilidad, aprendizaje, tiempo libre, inclusión y participación en la sociedad.</p>
+                <p style="text-align: center; max-width: 750px; margin: 0 auto;">
+                    La <strong>Competencia Digital</strong> no consiste únicamente en saber utilizar dispositivos u ordenadores, sino en adoptar una actitud crítica, creativa y segura hacia las Tecnologías de la Información (TIC) para adaptarse a las necesidades laborales, educativas y sociales en constante evolución.
+                </p>
+
+
+
+
+                <div class="synoptic-img-wrapper">
+                    <img loading="lazy" decoding="async" src="https://i.imgur.com/ObbT1Lm.png" alt="Cuadro sinóptico de las 5 áreas de Competencias Digitales y sus subcompetencias" class="synoptic-img">
+                </div>
+            
+                <figure class="audio-container">
+            <figcaption>Audio: Las cinco competencias digitales esenciales</figcaption>
+            <div class="audio-card">
+                <audio controls preload="metadata" src="audio/las-cinco-competencias-digitales-esenciales.mp3" aria-label="Audio: Las cinco competencias digitales esenciales">
+                    Tu navegador no soporta la reproducción de audio HTML5.
+                </audio>
+                <p class="audio-error" role="status" hidden>No se pudo cargar el audio. Verifica que el archivo «audio/las-cinco-competencias-digitales-esenciales.mp3» esté junto a la página.</p>
+            </div>
+        </figure>
+
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>La <strong>competencia digital</strong> no es solo manejar dispositivos: es usar las TIC de forma <strong>crítica, creativa y segura</strong> para el trabajo, el aprendizaje, el tiempo libre, la inclusión y la participación en la sociedad.</p>
+            <p>Se organiza en <strong>5 áreas</strong>: información y alfabetización informacional, comunicación y colaboración, creación de contenidos, seguridad y resolución de problemas.</p>
+        </div>
+    </div>
+        </section>
+
+        <!-- 8. Cuadro Sinóptico Interactivo (5 Áreas) -->
+        <section id="areas">
+            <div class="container">
+                <h2>Desglose: Las 5 Áreas de la Competencia Digital</h2>
+                <p style="text-align: center; margin-bottom: 25px;">Haz clic en cada área para desplegar las subcompetencias específicas:</p>
+
+
+
+
+                <div class="synoptic-box">
+                    <details>
+                        <summary>Área 1: Alfabetización Informacional</summary>
+                        <div class="details-content">
+                            <p><strong>Subcompetencias:</strong> Navegación, búsqueda y filtrado de datos; evaluación de información; almacenamiento y recuperación de contenido digital.</p>
+                        </div>
+                    </details>
+
+
+
+
+                    <details>
+                        <summary>Área 2: Comunicación y Colaboración</summary>
+                        <div class="details-content">
+                            <p><strong>Subcompetencias:</strong> Interacción mediante tecnologías, compartición de información, participación ciudadana en línea, netiqueta y gestión de la identidad digital.</p>
+                        </div>
+                    </details>
+
+
+
+
+                    <details>
+                        <summary>Área 3: Creación de Contenido Digital</summary>
+                        <div class="details-content">
+                            <p><strong>Subcompetencias:</strong> Desarrollo de contenidos, integración y reelaboración, derechos de autor y licencias, así como programación de aplicaciones y sistemas.</p>
+                        </div>
+                    </details>
+
+
+
+
+                    <details>
+                        <summary>Área 4: Seguridad</summary>
+                        <div class="details-content">
+                            <p><strong>Subcompetencias:</strong> Protección de dispositivos, protección de datos personales e identidad, cuidado de la salud física y mental, y protección del medio ambiente.</p>
+                        </div>
+                    </details>
+
+
+
+
+                    <details>
+                        <summary>Área 5: Resolución de Problemas</summary>
+                        <div class="details-content">
+                            <p><strong>Subcompetencias:</strong> Resolución de problemas técnicos, identificación de necesidades tecnológicas, innovación y uso creativo de la tecnología, y detección de lagunas digitales.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Infodemia -->
+        <section id="infodemia">
+            <div class="container">
+                <h2>El Desafío Actual: La Infodemia</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">
+                    En la era de la información nos enfrentamos a la <em>Infodemia</em>: una sobreabundancia de datos, algunos precisos y otros falsos, que dificulta encontrar fuentes fiables.
+                </p>
+                
+                <div class="feature-grid">
+                    <article class="feature-item">
+                        <h3>Verificación de Fuentes</h3>
+                        <p>Analiza quién publica la información, contrasta datos con sitios oficiales y evita compartir titulares sensacionalistas.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Pensamiento Crítico</h3>
+                        <p>Evalúa la intención detrás del contenido antes de asimilarlo o retransmitirlo en comunidades digitales.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Consumo Responsable</h3>
+                        <p>Establece filtros de lectura y gestiona el tiempo de exposición para evitar la saturación de datos irrelevantes.</p>
+                    </article>
+                </div>
+
+
+
+
+                
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/-pvJp4sNn0E?rel=0&amp;playsinline=1" title="Video de YouTube sobre la infodemia" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «InfodemiaMex»</figcaption>
+        </figure>
+<h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Qué dice la OMS y cómo cuidarte</h3><div class="feature-grid"><article class="feature-item"><h3>Infodemic / infodemia</h3><p>Término de la OMS para la sobreabundancia de información, parte rigurosa y parte no, que dificulta hallar fuentes confiables. El Dr. Tedros Adhanom Ghebreyesus pidió <span class="cita">«información precisa para protegerse a sí misma y a los demás»</span>.</p></article><article class="feature-item"><h3>De la infoxicación a la infodemia</h3><p>La infoxicación es individual; la infodemia es una epidemia informativa colectiva. La OMS cuenta con un equipo de comunicación de riesgos y gestión de infodemias que rastrea la información y trabaja con Facebook, Google, Tencent, Baidu, Twitter, TikTok, Weibo, Pinterest y otras plataformas.</p></article><article class="feature-item"><h3>Recomendaciones</h3><p>Elegí pocas fuentes y mantenelas actualizadas; chequeá el origen (OMS, Ministerio de Salud, sistema científico y universidades públicas); no compartas cadenas ni audios de desconocidos; desconfiá de lo que apela a la emoción.</p></article></div><div class="infografia-container">
+                    <p>Acá una infografía acerca de la Infodemia y cómo identificarla</p>
+                    <img loading="lazy" decoding="async" src="https://i.imgur.com/drRqvqi.jpeg" alt="Infografía sobre la Infodemia y cómo identificarla" class="infografia-img">
+                </div>
+            
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>La <strong>infodemia</strong> es la sobreabundancia de información, parte rigurosa y parte falsa, que dificulta encontrar fuentes confiables. La <strong>infoxicación</strong> es individual; la infodemia es colectiva.</p>
+            <p>Para cuidarte: elegí pocas fuentes confiables (OMS, Ministerio de Salud, sistema científico, universidades públicas), chequeá el origen, no compartas cadenas de desconocidos y desconfiá de lo que apela a la emoción.</p>
+        </div>
+    </div>
+        </section>
+
+        <section id="infocracia"><div class="container"><h2>Infocracia</h2><p>Concepto del filósofo Byung-Chul Han: la democracia se degrada cuando dominan los datos, los algoritmos de recomendación y la manipulación de la información.</p><div class="feature-grid"><article class="feature-item"><h3>Del disciplinamiento a la información</h3><p>Antes se dominaba con coerción y confinamiento (Foucault); hoy nos creemos libres y creativos mientras nos exhibimos y generamos datos sin parar: libertad y vigilancia se fusionan.</p></article><article class="feature-item"><h3>Psicopolítica y microtargeting</h3><p>Los datos del smartphone revelan un «inconsciente digital». Con psicometría y publicidad personalizada (dark ads), como en Cambridge Analytica, se influye en las emociones del votante.</p></article><article class="feature-item"><h3>Tribalización digital</h3><p>Sin discurso racional ni escucha del «otro» (Habermas), la red se parte en infoburbujas y cámaras de eco donde la información es identidad, no conocimiento.</p></article><article class="feature-item"><h3>Infowars y dataísmo</h3><p>Trolls, bots y memes apelan a la emoción inmediata. El dataísmo promete reemplazar el diálogo político por cálculo de big data e IA.</p></article><article class="feature-item"><h3>Crisis de la verdad</h3><p>Las fake news «desfactifican» la realidad: un nuevo nihilismo que destruye la estabilidad que la verdad necesita para sostener el consenso democrático.</p></article></div>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>Para Byung-Chul Han, la <strong>infocracia</strong> es la degradación de la democracia por el dominio de los datos, los algoritmos y la manipulación de la información: nos sentimos libres mientras generamos datos y somos vigilados.</p>
+            <p>Sus rasgos: <strong>psicopolítica</strong> y microtargeting, <strong>infoburbujas</strong> y cámaras de eco, <strong>infowars</strong> y dataísmo, y una <strong>crisis de la verdad</strong> (nuevo nihilismo).</p>
+        </div>
+    </div></section>
+
+        <section id="ia"><div class="container"><h2>La IA y la Programación</h2><p>Opiniones de estudiantes sobre el futuro de programar con inteligencia artificial.</p><div class="feature-grid"><article class="feature-item"><h3>Qué se automatizaría</h3><p>Atención al cliente, juegos amateur, software simple, proyectos de Arduino y correos automáticos.</p></article><article class="feature-item"><h3>Habilidades valoradas</h3><p>Creatividad, originalidad, detectar errores en el código y buena comunicación con usuarios.</p></article><article class="feature-item"><h3>Educación</h3><p>Aprender a usar la IA para generar código y saber leerlo y modificarlo; supervisión humana y planes de contingencia.</p></article><article class="feature-item"><h3>Riesgos</h3><p>La IA es imperfecta porque la hacen humanos: puede desviarse, ser usada con fines maliciosos y, al volver fácil crear software, inundar los medios de contenido de baja calidad.</p></article></div>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>Según las opiniones del grupo, la IA podría automatizar tareas simples (atención al cliente, juegos amateur, correos automáticos), pero se valorarán la <strong>creatividad</strong>, la originalidad, detectar errores y comunicarse con los usuarios.</p>
+            <p>Hay que aprender a usar la IA para generar código y saber leerlo y modificarlo, con <strong>supervisión humana</strong> y planes de contingencia, porque es imperfecta y puede usarse con fines maliciosos.</p>
+        </div>
+    </div></section>
+
+        
+
+        <section id="ciberviolencia"><div class="container"><h2>Ciberviolencia</h2>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/81fHywSRgME?rel=0&amp;playsinline=1" title="Video de YouTube sobre la ciberviolencia" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a Telefe</figcaption>
+        </figure>
+<p>La <strong>ciberviolencia</strong> es el uso de tecnologías digitales (internet, redes sociales, aplicaciones de mensajería y teléfonos móviles) para intimidar, hostigar, humillar, amenazar o dañar a una persona.</p><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Características principales</h3><div class="feature-grid"><article class="feature-item"><h3>Anonimato y rapidez</h3><p>Los agresores pueden ocultar su identidad y el contenido se difunde de forma masiva en segundos.</p></article><article class="feature-item"><h3>Permanencia</h3><p>Lo que se publica en la red es difícil de borrar por completo y puede consultarse de forma indefinida.</p></article><article class="feature-item"><h3>Impacto real</h3><p>Aunque ocurre a través de una pantalla, genera graves consecuencias psicológicas: ansiedad, depresión, estrés y aislamiento.</p></article></div><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Formas más comunes</h3><div class="feature-grid"><article class="feature-item"><h3>Ciberacoso (ciberbullying)</h3><p>Insultos, burlas, difusión de rumores o creación de perfiles falsos para humillar a alguien, común entre jóvenes y menores.</p></article><article class="feature-item"><h3>Ciberviolencia de género</h3><p>Ataques, hostigamiento y mensajes de odio dirigidos de forma desproporcionada hacia mujeres, niñas y personas LGBTQIA+.</p></article><article class="feature-item"><h3>Difusión no consentida de imágenes íntimas</h3><p>Compartir fotografías o videos de contenido sexual sin el permiso de la persona (conocido como <em>porno venganza</em>).</p></article><article class="feature-item"><h3>Sextorsión</h3><p>Coacción o chantaje para obligar a alguien a enviar material íntimo bajo la amenaza de publicar contenido privado.</p></article><article class="feature-item"><h3>Grooming</h3><p>Estrategia en la que un adulto se gana la confianza de un menor en línea con fines de abuso o explotación sexual.</p></article><article class="feature-item"><h3>Doxeo</h3><p>Publicación de datos personales privados (como dirección, teléfono o datos bancarios) sin autorización para exponer a la víctima.</p></article><article class="feature-item"><h3>Suplantación de identidad</h3><p>Creación de cuentas falsas haciéndose pasar por otra persona para enviar mensajes agresivos o dañar su reputación.</p></article></div>
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/No7WiZH.jpeg" alt="Imagen ilustrativa: cómo prevenir y actuar ante la ciberviolencia" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+<h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Cómo prevenir y actuar</h3><ul class="leadership-keys"><li><strong>Guardar pruebas:</strong> capturar pantallas de los mensajes, perfiles o publicaciones ofensivas.</li><li><strong>Bloquear y reportar:</strong> utilizar las herramientas de denuncia de las propias redes sociales o plataformas digitales.</li><li><strong>No responder al ataque:</strong> evitar entrar en confrontación directa con el agresor.</li><li><strong>Buscar apoyo:</strong> comunicar la situación a familiares, personas de confianza, centros educativos o acudir a las autoridades policiales y judiciales correspondientes.</li></ul><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Vía digital: reportar en las plataformas y buscadores</h3><p>Casi todos los sitios web tienen herramientas internas para eliminar publicaciones que violan sus condiciones de servicio.</p><div class="feature-grid"><article class="feature-item"><h3>En redes sociales (Instagram, TikTok, Facebook, X)</h3><p>1. Busca los <strong>tres puntos (…)</strong> en la esquina superior de la publicación, comentario o perfil del usuario.</p><p>2. Selecciona la opción <strong>«Reportar»</strong> o <strong>«Denunciar»</strong>.</p><p>3. Elige el motivo exacto (por ejemplo: acoso, incitación al odio, contenido sexual, violencia o spam).</p></article><article class="feature-item"><h3>En buscadores (Google)</h3><p>Si tus datos personales o imágenes íntimas aparecen en los resultados de búsqueda, puedes llenar un formulario específico en el <a href="https://support.google.com/legal/answer/3110420" target="_blank" rel="noopener noreferrer" aria-label="Centro de Ayuda Legal de Google (se abre en una pestaña nueva)">Centro de Ayuda Legal de Google</a> para solicitar que retiren ese enlace de sus resultados.</p></article></div><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Vía legal: denunciar ante la Justicia (Argentina)</h3><p>Si el contenido involucra un delito (amenazas, extorsión, difusión no consentida de material íntimo o grooming), reportar en la plataforma no es suficiente: <strong>debes realizar la denuncia penal</strong>.</p><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Primero: resguarda las pruebas</h3><p>Antes de denunciar o bloquear a la persona, es fundamental guardar evidencia para que la justicia pueda rastrear al agresor:</p><ul class="leadership-keys"><li><strong>Capturas de pantalla completas:</strong> donde se vea la fecha, la hora, el texto y el nombre de usuario o número de teléfono</li><li><strong>Enlaces (URLs):</strong> guarda los enlaces directos de los perfiles o del contenido ofensivo</li><li><strong>No borres nada:</strong> conserva los chats y los correos electrónicos originales</li></ul><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Dónde acudir para denunciar</h3><div class="feature-grid"><article class="feature-item"><h3>Cualquier Fiscalía o Comisaría</h3><p>Tienen la obligación legal de tomar tu denuncia penal, vivas en la provincia que vivas.</p></article><article class="feature-item"><h3>UFECI</h3><p>Unidad Fiscal Especializada en Ciberdelincuencia. Puedes enviar un correo con tu caso y las pruebas directamente a <a href="mailto:denunciasufeci@mpf.gov.ar">denunciasufeci@mpf.gov.ar</a>.</p></article><article class="feature-item"><h3>Línea 137</h3><p>Acompañamiento contra violencias digitales. Si sospechas de un caso de grooming o acoso sexual digital, puedes llamar de forma gratuita las 24 horas al <a href="tel:137">137</a> o enviar un mensaje por WhatsApp al <strong>11-3133-1000</strong> para recibir asesoramiento de especialistas antes de hacer la denuncia.</p></article></div><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Difusión no consentida de material íntimo y la Ley Olimpia</h3><p>En Argentina, la violencia digital contra las mujeres y diversidades está tipificada bajo la <strong>Ley Olimpia</strong> (sancionada a fines de 2023). Esta ley incorporó los entornos virtuales dentro de la Ley de Protección Integral a las Mujeres, reconociendo el ciberacoso, la cibervigilancia, el doxeo (difusión de datos privados) y la extorsión como formas reales de violencia de género.</p><div class="feature-grid"><article class="feature-item stat"><h3>38 %</h3><p>de las mujeres en Argentina ha sufrido alguna forma de violencia digital, según estudios de ONGs locales.</p></article><article class="feature-item stat"><h3>75 – 76 %</h3><p>de las usuarias reporta que no se siente libre de expresarse o publicar contenido en sus perfiles por miedo a represalias, amenazas o discursos de odio masivos.</p></article></div><h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Casos que muestran la gravedad y el impacto</h3><p>Cuatro hechos recientes en Argentina muestran que la ciberviolencia no es «solo virtual»: tiene víctimas reales, consecuencias judiciales y un daño profundo.</p><div class="feature-grid"><article class="feature-item"><h3>Caso 1: una adolescente en Catamarca</h3><p>Una estudiante de 17 años sufrió hostigamiento y acoso sostenido a partir de la difusión no consentida de un video íntimo por parte de compañeros. Su familia cuenta que no sale de su casa, recibe asistencia psicológica y que la Justicia intervino. Sus padres piden «recuperar nuestra vida»: el caso reabrió el debate en todo el país sobre el acoso escolar y la violencia digital.</p><p><a href="https://www.lanacion.com.ar/sociedad/el-desgarrador-relato-de-los-padres-de-la-joven-que-sufrio-bullying-en-catamarca-queremos-recuperar-nid27102026/" target="_blank" rel="noopener noreferrer" aria-label="Nota de La Nación sobre el caso de Catamarca (se abre en una pestaña nueva)">Leer la nota en La Nación</a></p></article><article class="feature-item"><h3>Caso 2: el deepfake como violencia machista</h3><p>Una nota de Página/12 (enero de 2026) describe cómo el pedido a una IA de «poner en bikini» a una chica se volvió tendencia en X. Con una foto cualquiera se pueden fabricar imágenes falsas: es un nuevo tipo de violencia machista en el que usuarios y plataformas le quitan a mujeres y niñas el control sobre su propia imagen.</p><p><a href="https://www.pagina12.com.ar/2026/01/10/la-expropiacion-de-la-identidad-en-la-era-del-deepfake/" target="_blank" rel="noopener noreferrer" aria-label="Nota de Página/12 sobre deepfakes e identidad (se abre en una pestaña nueva)">Leer la nota en Página/12</a></p></article><article class="feature-item"><h3>Caso 3: imágenes falsas con IA en un colegio de Villa Bosch</h3><p>Alumnos de un colegio secundario usaron inteligencia artificial para crear y vender imágenes sexualizadas de sus compañeras. Las alumnas denunciaron la circulación de fotos falsas en las que aparecen desnudas, y las familias protestaron: el hecho generó alarma en toda la comunidad educativa.</p><p><a href="https://www.pagina12.com.ar/2026/10/16/otro-caso-de-violencia-sexual-digital-afecta-a-unas-alumnas-de-un-colegio-secundario/" target="_blank" rel="noopener noreferrer" aria-label="Nota de Página/12 sobre el caso de Villa Bosch (se abre en una pestaña nueva)">Leer la nota en Página/12</a></p></article><article class="feature-item"><h3>Caso 4: «porn deepfakes» en una escuela de Lomas</h3><p>Se investiga un presunto delito contra la integridad sexual: fotos de compañeras de los acusados fueron manipuladas para que parezcan desnudas, compartidas con otras escuelas y difundidas en sitios pornográficos. La Justicia allanó casas y secuestró los celulares de los alumnos involucrados.</p><p><a href="https://www.pagina12.com.ar/2026/10/09/porn-deepfakes-allanaron-casas-y-secuestraron-celulares-de-alumnos-de-la-escuela-de-lomas/" target="_blank" rel="noopener noreferrer" aria-label="Nota de Página/12 sobre el caso de Lomas (se abre en una pestaña nueva)">Leer la nota en Página/12</a></p></article></div>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>La <strong>ciberviolencia</strong> usa tecnologías digitales para intimidar, hostigar, humillar, amenazar o dañar a una persona. Se caracteriza por el <strong>anonimato y la rapidez</strong>, la <strong>permanencia</strong> del contenido y un <strong>impacto real</strong>: ansiedad, depresión, estrés y aislamiento.</p>
+            <p>Sus formas más comunes son el ciberacoso, la ciberviolencia de género, la difusión no consentida de imágenes íntimas, la sextorsión, el grooming, el doxeo y la suplantación de identidad. Ante un ataque: <strong>guardar pruebas, bloquear y reportar, no responder y buscar apoyo</strong>.</p>
+            <p>Si hay un delito, además del reporte en la plataforma corresponde la <strong>denuncia penal</strong> (cualquier Fiscalía o Comisaría, UFECI o Línea 137). En Argentina, la <strong>Ley Olimpia</strong> reconoce la violencia digital contra mujeres y diversidades.</p>
+        </div>
+    </div></section>
+
+        <section id="identidad"><div class="container"><h2>Identidad Digital</h2><p>Es el conjunto de información expuesta en Internet sobre una persona: define quiénes somos en la red. Importa para la reputación, el impacto profesional y académico, la seguridad (phishing, robo de identidad, suplantación) y la credibilidad.</p>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/glK6XPN2-8c?rel=0&amp;playsinline=1" title="Video de YouTube sobre la identidad digital" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «Centro de Ciberseguridad del GCBA»</figcaption>
+        </figure>
+<div class="feature-grid"><article class="feature-item"><h3>Multifacética</h3><p>Perfiles, comentarios, fotos, videos, contactos y mensajes.</p></article><article class="feature-item"><h3>Co-construida</h3><p>También la forman las cosas que otros publican sobre vos.</p></article><article class="feature-item"><h3>Ligada a la reputación</h3><p>La imagen que otros arman con lo que encuentran en buscadores y plataformas.</p></article><article class="feature-item"><h3>Persistente</h3><p>Copias, respaldos y capturas la mantienen aunque borres el original.</p></article></div>
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/JCbSRu2.jpeg" alt="Imagen ilustrativa: identidad digital y huella digital" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+<h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Huella digital</h3><div class="feature-grid"><article class="feature-item"><h3>Activa</h3><p>Datos creados de forma intencional: una publicación o un formulario.</p></article><article class="feature-item"><h3>Pasiva</h3><p>Datos recopilados sin tu intervención directa: servidores, navegadores y dispositivos.</p></article><article class="feature-item"><h3>Cookies</h3><p>Almacenan información de los visitantes para el funcionamiento del sitio, estadísticas, personalización y publicidad dirigida.</p></article><article class="feature-item"><h3>No se puede borrar del todo</h3><p>Hay copias en servidores de terceros, datos pasivos y gente que guarda o recomparte. Mitigá: pensá qué compartís, configurá la privacidad, usá herramientas de seguridad y revisá periódicamente qué hay sobre vos.</p></article></div><p style="margin-top:25px"><strong>En las empresas:</strong> la huella activa incluye sitios oficiales, redes, apps y políticas BYOD; la pasiva, cuentas antiguas, contenido de terceros y sitios de phishing. Los riesgos son ciberseguridad, reputación y cumplimiento normativo (GDPR, HIPAA); se responde con monitoreo, herramientas (SIEM, EDR, DLP) y capacitación.</p>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>La <strong>identidad digital</strong> es la información sobre vos que circula en Internet: es multifacética, co-construida, ligada a la reputación y persistente.</p>
+            <p>La <strong>huella digital</strong> puede ser activa (datos que creás vos) o pasiva (datos recopilados sin tu intervención, como las cookies). No se puede borrar del todo: cuidá lo que compartís, configurá la privacidad y revisá periódicamente qué hay sobre vos.</p>
+        </div>
+    </div></section>
+
+        <section id="derechos"><div class="container"><h2>Derechos de Autor</h2><p>Conjunto de normas que reconocen derechos morales y patrimoniales a quienes crean obras literarias, artísticas, musicales, científicas o didácticas, publicadas o inéditas. Protegen la forma original en que se expresan las ideas.</p><div class="feature-grid"><article class="feature-item"><h3>Derechos morales</h3><p>Reconocen la autoría (paternidad) y protegen la reputación del autor. Son irrenunciables y se conservan aunque se cedan los derechos patrimoniales.</p></article><article class="feature-item"><h3>Derechos patrimoniales</h3><p>Permiten decidir cómo se copia, publica, distribuye, traduce, adapta o comunica la obra, y generar ingresos con licencias, cesiones o regalías.</p></article><article class="feature-item"><h3>Copyright vs. derecho de autor</h3><p>El modelo anglosajón protege la obra y sus usos, sin considerar atributos morales salvo la paternidad.</p></article><article class="feature-item"><h3>Protección automática</h3><p>Existe desde la creación, sin registro, trámite ni pago.</p></article><article class="feature-item"><h3>Cómo resguardar tu obra</h3><p>1) Guardar pruebas de autoría. 2) Registrarla (opcional). 3) Publicar con aviso o marca de agua y el símbolo ©. 4) Vigilar copias no autorizadas. 5) Reclamar en la plataforma, vía DMCA o tratados internacionales.</p></article><article class="feature-item"><h3>Si se infringe</h3><p>Demandas, multas, indemnizaciones e incluso prisión; pérdida de reputación y de oportunidades de negocio, y daño económico a la industria creativa por la piratería.</p></article></div>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/ZCqGsYeqbyU?rel=0&amp;playsinline=1" title="Video de YouTube sobre los derechos de autor" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «JurídicaMente»</figcaption>
+        </figure>
+<h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Marco legal</h3>
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/MOs2vVE.jpeg" alt="Imagen ilustrativa: derechos de autor y marco legal" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+<ul class="leadership-keys"><li><strong>Convenio de Berna:</strong> protección automática y respeto a reproducción, traducción y adaptación</li><li><strong>OMPI:</strong> organismo que coordina los acuerdos globales de protección</li><li><strong>Ley 11.723 (Argentina):</strong> ampara obras literarias, artísticas, musicales, científicas y software</li><li><strong>DMCA (EE. UU.):</strong> regula contenidos en internet y permite retirar material infractor</li></ul><p style="margin-top:25px"><strong>Repositorios con obras bajo distintas licencias:</strong> Unsplash, Pexels, Pixabay, Wikimedia Commons, Freepik, Openverse, StockSnap, Burst, Reshot, Kaboompics, Flickr, NASA y Europeana. Revisá siempre la licencia de cada obra.</p>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>El <strong>derecho de autor</strong> protege la forma original en que se expresa una obra y se adquiere <strong>automáticamente</strong> al crearla, sin registro ni trámite.</p>
+            <p>Incluye <strong>derechos morales</strong> (autoría y reputación, irrenunciables) y <strong>patrimoniales</strong> (decidir cómo se usa la obra y obtener ingresos). El marco: Convenio de Berna, OMPI, Ley 11.723 (Argentina) y DMCA (EE. UU.).</p>
+            <p>Infringirlo puede traer demandas, multas e indemnizaciones. Antes de usar una obra, revisá su licencia.</p>
+        </div>
+    </div></section>
+
+        <!-- 4. Trabajadores del Conocimiento -->
+        <section id="trabajadores">
+            <div class="container">
+                <h2>El Rol del Trabajador del Conocimiento</h2>
+                
+                <p>El término <strong>trabajadores del conocimiento</strong> define a los profesionales cuyo valor principal radica en su capacidad intelectual: pensar soluciones, analizar información y trazar estrategias. Más que ejecutar tareas repetitivas, ponen su talento estratégico al servicio de la organización.</p>
+
+
+
+
+                <!-- Video de YouTube (se reproduce dentro de la página) -->
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/6gr53Yd4ya4?rel=0&amp;playsinline=1"
+                        title="Video de YouTube sobre los trabajadores del conocimiento"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «Jc Ff»</figcaption>
+        </figure>
+
+        <h3>Principios del Liderazgo Creativo</h3>
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/ingHC9z.jpeg" alt="Imagen ilustrativa del apartado Principios del Liderazgo Creativo" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+
+                <p>Las organizaciones modernas coinciden en que estos profesionales constituyen el activo más valioso dentro del ecosistema tecnológico:</p>
+                
+                <blockquote>
+                    <p>"El objetivo principal de la gestión moderna es potenciar la capacidad analítica y creativa de las personas."</p>
+                    <p>"El verdadero valor organizacional surge al contratar talento capaz de guiar la estrategia, no solo de seguir instrucciones."</p>
+                    <p>"Fomentar la autonomía técnica permite que las mejores soluciones emerjan de forma natural."</p>
+                </blockquote>
+
+
+
+
+                <h3>Claves para Motivar y Liderar al Talento Intelectual</h3>
+                <p>Para maximizar el potencial de los trabajadores del conocimiento, los modelos jerárquicos tradicionales deben dar paso a estructuras más horizontales basadas en tres pilares:</p>
+
+
+
+
+                <ol class="leadership-keys">
+                    <li>
+                        <strong>Fomentar la autogestión y la autonomía:</strong> Dado que están en contacto directo con los procesos y clientes, empoderar a los empleados e involucrarlos en la toma de decisiones impulsa la productividad.
+                    </li>
+                    <li>
+                        <strong>Fortalecer las relaciones interpersonales:</strong> Construir comunidad y comprender las metas personales de los colaboradores permite alinear sus aspiraciones individuales con los objetivos de la compañía.
+                    </li>
+                    <li>
+                        <strong>Practicar la escucha activa:</strong> Priorizar la escucha sobre el discurso demuestra interés genuino por las necesidades del equipo y consolida la confianza mutua.
+                    </li>
+                </ol>
+            
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>Los <strong>trabajadores del conocimiento</strong> aportan valor con su capacidad intelectual: piensan soluciones, analizan información y trazan estrategias en lugar de ejecutar tareas repetitivas.</p>
+            <p>Para liderarlos, las estructuras jerárquicas deben dar paso a otras más horizontales basadas en tres pilares: <strong>fomentar la autogestión y la autonomía</strong>, <strong>fortalecer las relaciones interpersonales</strong> y <strong>practicar la escucha activa</strong>.</p>
+        </div>
+    </div>
+        </section>
+
+        <section id="evolucion"><div class="container"><h2>Evolución de las Tecnologías del Conocimiento</h2><p>De la memoria viva a la cognición delegada: cada tecnología cambió cómo guardamos y transmitimos el saber.</p><p>Una tecnología es la medida que permite alterar el sistema productivo y las formas de transmitir conocimiento.</p>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/OEulwx9a3FI?rel=0&amp;playsinline=1" title="Video de YouTube sobre la evolución de las tecnologías del conocimiento" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «TodoCode»</figcaption>
+        </figure>
+<div class="feature-grid"><article class="feature-item"><h3>Oralidad y escritura</h3><p>Del saber en la memoria viva (anamnesis) a la escritura como memoria exterior (hypomnesis). Ong y Havelock vieron en ella un pensamiento más analítico; en el Fedro, Platón la mira con recelo.</p></article><article class="feature-item"><h3>Imprenta (c. 1440)</h3><p>Gutenberg estandarizó y abarató los libros y sacó el saber de los monasterios: impulsó Humanismo, ciencia moderna e Ilustración, pero también propaganda y disputas religiosas.</p></article><article class="feature-item"><h3>Internet</h3><p>Información en red, hipertexto e inteligencia colectiva; también saturación, zapping y posverdad.</p></article><article class="feature-item"><h3>Inteligencia Artificial</h3><p>De guardar información a procesarla y generar contenido sintético de forma autónoma.</p></article></div><ul class="leadership-keys"><li><strong>1943–1950:</strong> redes neuronales (McCulloch y Pitts) y Test de Turing</li><li><strong>1966–1997:</strong> chatbot ELIZA y victoria de DeepBlue en ajedrez</li><li><strong>2012–hoy:</strong> AlexNet (2012), AlphaGo (2016), GPT-3 (2020) y ChatGPT (2022)</li></ul><p style="margin-top:25px">Dilemas: el «atajo universal» puede debilitar creatividad, juicio crítico y memoria; quien controla datos, algoritmos e infraestructura gana poder sobre lo que se considera cierto. Ninguna herramienta es determinista: importan las decisiones políticas, educativas y éticas.</p>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>Cada tecnología cambió cómo guardamos y transmitimos el saber: de la <strong>oralidad</strong> a la <strong>escritura</strong> (memoria exterior), la <strong>imprenta</strong> (c. 1440), <strong>Internet</strong> (redes e inteligencia colectiva) y la <strong>IA</strong> (cognición delegada).</p>
+            <p>Hitos de la IA: redes neuronales (1943), Test de Turing (1950), ELIZA (1966), DeepBlue (1997), AlexNet (2012), AlphaGo (2016), GPT-3 (2020) y ChatGPT (2022). Ninguna herramienta es determinista: importan las decisiones políticas, educativas y éticas.</p>
+        </div>
+    </div></section>
+
+        <section id="diseno-web"><div class="container"><h2>Diseño Web</h2><p>Es planificar, crear y organizar visualmente un sitio para ofrecer una experiencia intuitiva, atractiva y útil. El diseño define estética, distribución y navegación; el desarrollo usa HTML, CSS o JavaScript para construirlo.</p><div class="feature-grid"><article class="feature-item"><h3>Enfoque en el usuario (UX/UI)</h3><p>Navegación intuitiva: lo buscado en menos de tres clics. Diseño mobile-first, pensando primero en pantallas pequeñas.</p></article><article class="feature-item"><h3>Rendimiento</h3><p>Un sitio que tarda más de 3 segundos en cargar pierde más de la mitad de sus visitantes: optimizá imágenes, reducí código y elegí buen hosting.</p></article><article class="feature-item"><h3>Contenido y objetivos</h3><p>Llamados a la acción (CTA) visibles y jerarquía visual que destaque lo importante.</p></article><article class="feature-item"><h3>SEO y seguridad</h3><p>Etiquetas correctas (H1, H2, descripciones) para que Google indexe la página, y HTTPS para proteger datos y generar confianza.</p></article></div>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/-ut593BSlCk?rel=0&amp;playsinline=1" title="Video de YouTube sobre diseño web" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «At all Times»</figcaption>
+        </figure>
+<h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Guía para evaluar un sitio</h3>
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/GfTZyUA.jpeg" alt="Imagen ilustrativa: diseño web" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+<ul class="leadership-keys"><li><strong>Identidad y propósito:</strong> en 5 segundos debe entenderse qué ofrece y a quién</li><li><strong>UX y navegación:</strong> menú esencial y CTAs que no compitan entre sí</li><li><strong>Rendimiento y adaptabilidad:</strong> texto legible, botones fáciles de tocar, sin animaciones pesadas, buen contraste</li><li><strong>Contenido y conversión:</strong> imágenes reales, testimonios, logos y certificaciones</li><li><strong>Accesibilidad:</strong> textos ALT, navegación con Tab y no depender solo del color</li><li><strong>Psicología y fatiga visual:</strong> espacio en blanco, sin dark patterns y entre dos y tres tipografías</li></ul>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>El <strong>diseño web</strong> define cómo se ve, se estructura y se navega un sitio; el desarrollo lo construye con HTML, CSS o JavaScript. Lo central es la <strong>experiencia de usuario (UX)</strong>.</p>
+            <p>Cuatro pilares: enfoque en el usuario (navegación intuitiva y mobile-first), rendimiento (más de 3 segundos de carga pierde a más de la mitad de las visitas), contenido con CTA claros y jerarquía visual, y SEO con HTTPS. A eso se suma la accesibilidad para que cualquiera pueda usarlo.</p>
+        </div>
+    </div></section>
+
+        <section id="curacion"><div class="container"><h2>Plan de Curación de Contenido</h2><p>Seis pasos para seleccionar y compartir contenido valioso de forma ordenada.</p>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/McqgreC_Oig?rel=0&amp;playsinline=1" title="Video de YouTube sobre la curación de contenido" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «Comunicazen»</figcaption>
+        </figure>
+<div class="feature-grid"><article class="feature-item"><h3>1. Definir el objetivo</h3><p>¿Visibilidad, tráfico o autoridad en un tema? ¿Quién es el público y qué necesita?</p></article><article class="feature-item"><h3>2. Identificar fuentes</h3><p>Blogs, noticias, redes sociales; y qué tipo de contenido buscar: artículos, videos, imágenes.</p></article><article class="feature-item"><h3>3. Fijar criterios</h3><p>Relevancia, calidad y actualidad; autoridad del autor y precisión de la información.</p></article><article class="feature-item"><h3>4. Organizar</h3><p>Por tema, fecha o autor, con bases de datos u hojas de cálculo.</p></article><article class="feature-item"><h3>5. Presentar</h3><p>En boletín, blog o página web, con plataformas de blogging o herramientas de diseño.</p></article><article class="feature-item"><h3>6. Evaluar y ajustar</h3><p>Medir tráfico y participación, y revisar criterios y formato según haga falta.</p></article></div>
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/I6wUPrK.jpeg" alt="Imagen ilustrativa: curación de contenido" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>Curar contenido es seleccionar y compartir material valioso en <strong>6 pasos</strong>: definir el objetivo y el público, identificar fuentes, fijar criterios, organizar, presentar, y evaluar y ajustar.</p>
+            <p>Los criterios clave son <strong>relevancia, calidad y actualidad</strong>; la calidad se evalúa por la autoridad del autor y la precisión de la información.</p>
+        </div>
+    </div></section>
+
+        <section id="seguridad"><div class="container"><h2>Seguridad Informática</h2><p>Protege infraestructura, software, redes e información digital. Se apoya en tres pilares: confidencialidad (acceso solo de autorizados), integridad (sin modificaciones no autorizadas) y disponibilidad (acceso cuando se necesita). Se previene con backups, antivirus, cortafuegos, actualizaciones, contraseñas complejas y buena privacidad en redes.</p>
+        <figure class="video-container youtube-embed">
+            <div class="youtube-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/Xaw0Lij3Nkw?rel=0&amp;playsinline=1" title="Video de YouTube sobre seguridad informática" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Créditos a «TodoCode»</figcaption>
+        </figure>
+<div class="table-wrapper" tabindex="0" role="region" aria-label="Tabla de amenazas informáticas (se desplaza con las flechas del teclado)"><table class="comparison-table"><thead><tr><th>Amenaza</th><th>Qué es</th><th>Señales</th><th>Qué hacer</th></tr></thead><tbody><tr><td>Cryptojacking</td><td>Usa sin permiso tu dispositivo para minar criptomonedas.</td><td>Procesador al máximo, lentitud, calor, ventiladores siempre activos.</td><td>Actualizar, usar antivirus, instalar desde tiendas oficiales, revisar el Administrador de tareas y hacer un análisis completo.</td></tr><tr><td>Adware</td><td>Muestra anuncios y ventanas emergentes sin permiso y recopila hábitos de navegación.</td><td>Publicidad inusual, cambios en página de inicio o buscador, redirecciones, extensiones desconocidas.</td><td>Descargar de fuentes confiables, desmarcar software adicional al instalar y usar antivirus en tiempo real.</td></tr><tr><td>Troyano</td><td>Parece un programa legítimo; no se replica solo y requiere que el usuario lo ejecute. Puede abrir backdoors.</td><td>Congelamientos, pop-ups, carpetas desconocidas, antivirus desactivado.</td><td>Parches al día, descargas oficiales, cortafuegos y programas antitroyanos.</td></tr><tr><td>Ransomware</td><td>Cifra tus datos y exige un rescate.</td><td>Archivos que no abren, extensiones como .locked, nota de extorsión en pantalla.</td><td>Backups frecuentes, doble factor. Si te atacan: desconectar de la red, restaurar y nunca pagar.</td></tr></tbody></table></div>
+        <figure class="audio-container">
+            <figcaption>Audio: El factor humano detrás del ransomware</figcaption>
+            <div class="audio-card">
+                <audio controls preload="metadata" src="audio/el-factor-humano-detras-del-ransomware.mp3" aria-label="Audio: El factor humano detrás del ransomware">
+                    Tu navegador no soporta la reproducción de audio HTML5.
+                </audio>
+                <p class="audio-error" role="status" hidden>No se pudo cargar el audio. Verifica que el archivo «audio/el-factor-humano-detras-del-ransomware.mp3» esté junto a la página.</p>
+            </div>
+        </figure>
+
+        <figure class="infografia-container image-figure">
+            <img class="infografia-img" src="https://i.imgur.com/nUBadqt.jpeg" alt="Imagen ilustrativa: seguridad informática y violencia cibernética" loading="lazy" decoding="async">
+            <figcaption>Imagen ilustrativa</figcaption>
+        </figure>
+<h3 class="subsection-title" style="text-align:center;margin:40px 0 20px">Violencia cibernética</h3><div class="feature-grid"><article class="feature-item"><h3>Ciberacoso y cyberbullying</h3><p>Insultos, amenazas, humillaciones o rumores en redes.</p></article><article class="feature-item"><h3>Difusión no consentida</h3><p>Compartir fotos, videos o audios íntimos sin permiso.</p></article><article class="feature-item"><h3>Suplantación de identidad</h3><p>Perfiles falsos o cuentas ajenas que dañan la reputación.</p></article><article class="feature-item"><h3>Grooming</h3><p>Engaño o acoso de un adulto hacia un menor.</p></article><article class="feature-item"><h3>Doxing</h3><p>Publicar datos personales para intimidar.</p></article><article class="feature-item"><h3>Deepfakes y morphing</h3><p>Imágenes, audios o videos falsos creados con IA para humillar.</p></article></div>
+        <div class="conclusion" role="note" aria-label="Conclusión">
+            <p class="conclusion-label">Conclusión</p>
+            <p>La <strong>seguridad informática</strong> protege infraestructura, software, redes e información sobre tres pilares: <strong>confidencialidad</strong>, <strong>integridad</strong> y <strong>disponibilidad</strong>.</p>
+            <p>Amenazas: <strong>cryptojacking</strong> (mina criptomonedas con tu equipo), <strong>adware</strong> (anuncios no deseados), <strong>troyano</strong> (parece legítimo y necesita que lo ejecutes) y <strong>ransomware</strong> (cifra tus datos y pide rescate: nunca pagar). Prevención: backups, antivirus, actualizaciones y contraseñas seguras.</p>
+            <p>La <strong>violencia cibernética</strong> incluye ciberacoso, difusión no consentida de contenido íntimo, suplantación, grooming, doxing y deepfakes.</p>
+        </div>
+    </div></section>
+
+        <section id="creditos"><div class="container"><h2>Fuentes y Créditos</h2><p>Los textos de este sitio resumen y reelaboran material de estudio. Las ideas pertenecen a sus autores.</p><ul class="leadership-keys"><li><strong>Competencia digital:</strong> Recomendación europea de 2006 (European Parliament and the Council); Ferrari (2012)</li><li><strong>Redes sociales:</strong> definición socioeconómica de Jaime Royero (2007)</li><li><strong>Infocracia:</strong> Byung-Chul Han</li><li><strong>Infodemia:</strong> Organización Mundial de la Salud</li><li><strong>Informes de ciberseguridad:</strong> Cryptojacking: Giulianno Vital, Lionel Bruno, Valentino Ruíz e Ignacio Sosa. Ransomware: Agustín Rodríguez, Agustín Villarruel, Benicio Solti, Lisandro González, Martín Gatta, Nahuel Lorenzo y Thiago Denis</li></ul><p style="margin-top:20px">Cuando uses o cites estas fuentes, nombrá al autor y respetá la licencia de cada obra.</p></div></section>
+
+    </main>
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <figure class="auth-logo-container">
+                <img loading="lazy" decoding="async" src="data:image/webp;base64,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" width="120" height="120" alt="Logotipo de Joaco Garavano" class="auth-logo-img">
+                <figcaption class="auth-logo-caption">Logo de autenticación de validez</figcaption>
+            </figure>
+            <a class="youtube-link" href="https://youtube.com/@garzo-garcia?si=Z2HBnKhA5LmG_CLO" target="_blank" rel="noopener noreferrer" aria-label="Visitar el canal de YouTube (se abre en una pestaña nueva)" title="Canal de YouTube">
+                <svg viewBox="0 0 68 48" width="68" height="48" role="img" aria-hidden="true" focusable="false">
+                    <rect width="68" height="48" rx="13" fill="#FF0000"></rect>
+                    <path d="M27 14v20l18-10z" fill="#FFFFFF"></path>
+                </svg>
+            </a>
+            <p>&copy; 2026 Tecnología, Sociedad, Conocimiento y Competencia Digital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Script de Control para el Menú Hamburguesa -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerBtn = document.getElementById('hamburger-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const menuLinks = document.querySelectorAll('.nav-menu a');
+            const header = document.getElementById('main-header');
+            const pageParts = document.querySelectorAll('header, main, footer, .skip-link'); // se bloquean mientras el menú está abierto
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const isOpen = () => navMenu.classList.contains('active');
+
+            // Las secciones pueden recibir el foco por código: tras un salto, Tab continúa desde ahí
+            document.querySelectorAll('section[id]').forEach(sec => sec.setAttribute('tabindex', '-1'));
+
+            // Elementos del menú alcanzables con el teclado (los enlaces de acordeones cerrados no cuentan)
+            function menuItems() {
+                return Array.from(navMenu.querySelectorAll('summary, a[href]')).filter(el => {
+                    if (el.tagName === 'SUMMARY') return true;
+                    const d = el.closest('details');
+                    return !d || d.open;
+                });
+            }
+
+            function setOpen(open, returnFocus) {
+                hamburgerBtn.classList.toggle('open', open);
+                navMenu.classList.toggle('active', open);
+                menuOverlay.classList.toggle('active', open);
+                hamburgerBtn.setAttribute('aria-expanded', String(open));
+                hamburgerBtn.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+                pageParts.forEach(el => { el.inert = open; });
+                if (open) {
+                    // el panel pasa de oculto a visible con una transición: se espera un instante para poder enfocarlo
+                    setTimeout(() => { if (!isOpen()) return; const first = menuItems()[0]; if (first) first.focus({ preventScroll: true }); }, 60);
+                } else if (returnFocus) {
+                    hamburgerBtn.focus({ preventScroll: true });
+                }
+            }
+            const closeMenu = (returnFocus = true) => setOpen(false, returnFocus);
+
+            hamburgerBtn.addEventListener('click', () => setOpen(!isOpen(), false));
+            menuOverlay.addEventListener('click', () => closeMenu(true));
+
+            // Teclado dentro del menú: Escape cierra, Tab da la vuelta sin salirse, flechas/Inicio/Fin recorren las opciones
+            document.addEventListener('keydown', (e) => {
+                if (!isOpen()) return;
+                if (e.key === 'Escape') { e.preventDefault(); closeMenu(true); return; }
+                if (e.key === 'Tab') {
+                    const ring = [hamburgerBtn, ...menuItems()], i = ring.indexOf(document.activeElement);
+                    if (e.shiftKey && i <= 0) { e.preventDefault(); ring[ring.length - 1].focus({ preventScroll: true }); }
+                    else if (!e.shiftKey && (i === -1 || i === ring.length - 1)) { e.preventDefault(); ring[0].focus({ preventScroll: true }); }
+                } else if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key) && navMenu.contains(document.activeElement)) {
+                    e.preventDefault();
+                    const items = menuItems(), i = items.indexOf(document.activeElement);
+                    const next = e.key === 'Home' ? 0 : e.key === 'End' ? items.length - 1 : e.key === 'ArrowDown' ? Math.min(i + 1, items.length - 1) : Math.max(i - 1, 0);
+                    items[next].focus({ preventScroll: true });
+                }
+            });
+
+            // Las imágenes y videos con carga diferida cambian la altura de la página mientras se baja y el destino se corre:
+            // al terminar el salto se vuelve a alinear la sección bajo el header (se cancela si la persona empieza a desplazarse).
+            let jumpId = 0;
+            ['wheel', 'touchstart'].forEach(ev => window.addEventListener(ev, () => { jumpId++; }, { passive: true }));
+            window.addEventListener('keydown', (e) => { if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(e.key) && !isOpen()) jumpId++; });
+            function settleOn(target) {
+                const id = ++jumpId;
+                const fix = () => {
+                    if (id !== jumpId || !document.body.contains(target)) return;
+                    const vt = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vt')) || 0;
+                    const want = (parseFloat(getComputedStyle(target).scrollMarginTop) || 0) + (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0);
+                    if (Math.abs(target.getBoundingClientRect().top - vt - want) > 8) target.scrollIntoView({ behavior: 'auto', block: 'start' });
+                };
+                window.addEventListener('scrollend', fix, { once: true });
+                [900, 1800, 3200].forEach(t => setTimeout(fix, t));
+            }
+
+            // Acceso rápido: cierra el menú, baja a la sección y deja el foco ahí para seguir con Tab
+            menuLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href');
+                    if (!targetId || !targetId.startsWith('#')) return;
+                    const targetSection = document.querySelector(targetId);
+                    if (!targetSection) return;
+                    e.preventDefault();
+                    closeMenu(false);
+                    targetSection.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+                    targetSection.focus({ preventScroll: true });
+                    settleOn(targetSection);
+                });
+            });
+
+            // Si un audio no carga (por ejemplo, falta el archivo), se avisa en lugar de dejar un reproductor mudo
+            document.querySelectorAll('.audio-card audio').forEach(a => {
+                a.addEventListener('error', () => { const m = a.parentElement.querySelector('.audio-error'); if (m) m.hidden = false; });
+            });
+
+            // Anclaje a la zona visible: dentro de un iframe (Google Sites), "fixed" se pega al iframe y no a la pantalla.
+            // IntersectionObserver informa qué parte del documento se ve realmente y movemos header, botón y panel ahí.
+            (function () {
+                if (window.self === window.top) return; // fuera de un iframe, 'fixed' ya funciona de forma nativa
+                const root = document.documentElement, probe = document.createElement('div'), vis = new Map();
+                let io, count = 0;
+                probe.setAttribute('aria-hidden', 'true');
+                probe.style.cssText = 'position:absolute;top:0;left:0;width:1px;pointer-events:none;';
+                document.body.appendChild(probe);
+
+                function apply() {
+                    let t = Infinity, b = -Infinity;
+                    vis.forEach(r => { t = Math.min(t, r.t); b = Math.max(b, r.b); });
+                    if (t === Infinity) return;
+                    root.style.setProperty('--vt', Math.max(0, Math.round(t)) + 'px');
+                    root.style.setProperty('--vh', Math.round(b - t) + 'px');
+                }
+
+                function build() {
+                    const h = Math.max(root.scrollHeight, window.innerHeight), size = Math.max(40, Math.ceil(h / 800));
+                    const n = Math.ceil(h / size);
+                    if (n === count) return;
+                    count = n;
+                    if (io) io.disconnect();
+                    vis.clear(); probe.textContent = '';
+                    io = new IntersectionObserver(entries => {
+                        entries.forEach(e => {
+                            if (e.isIntersecting) vis.set(e.target, { t: e.intersectionRect.top, b: e.intersectionRect.bottom });
+                            else vis.delete(e.target);
+                        });
+                        apply();
+                    }, { threshold: [0, 0.5, 1] });
+                    for (let i = 0; i < n; i++) {
+                        const d = document.createElement('div');
+                        d.style.height = size + 'px';
+                        probe.appendChild(d);
+                        io.observe(d);
+                    }
+                }
+
+                build();
+                if (window.ResizeObserver) new ResizeObserver(build).observe(document.body);
+                window.addEventListener('load', build);
+            })();
+
+            // Sombra en el header al hacer scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }, { passive: true });
+        });
+    </script>
+</body>
+</html>
